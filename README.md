@@ -20,6 +20,10 @@ From project root, run either of the below commands:
 
 This will start the discord bot from the command line.
 
+### Running from a docker container/image
+
+There is a Dockerfile that can be used to build the bot as well. The main thing here is that, by default, it won't have the bot token required to run (which lives in `.env`). You will need to inject the token into a `.env` file within the container after it is deployed. However, the container itself should work and exposts the default 80/443 ports.
+
 ### How to perform unit tests
 
 Currently, there are a few simple unit tests built into the bot. These live in the `test` directory in `test.js`. Currently, jest is used as the testing framework.
