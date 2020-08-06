@@ -16,8 +16,9 @@ const exampleEmbed = new Discord.MessageEmbed()
 	.setFooter('"But it better be honey on main" -Will', 'https://cdn0.iconfinder.com/data/icons/food-and-drinks-9/51/celebration2-512.png');
 
 module.exports = {
-    name: 'embed',
-    description: 'Embed the message!',
+    name: 'introduce',
+	description: 'Introduces butlerbot with a fancy message!',
+	aliases: ['present'],
     cooldown: 5,
     execute(message) {
 		message.channel.send(exampleEmbed);

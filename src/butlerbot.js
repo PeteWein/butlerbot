@@ -84,7 +84,7 @@ process.on('unhandledRejection', error => {
 
 // set game status to help command
 client.on("ready", () =>{
-	client.user.setActivity('!help',
+	client.user.setActivity(`${prefix}help`,
 	{ type: 'LISTENING' })
 	.catch(console.error);
 });
