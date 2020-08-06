@@ -82,6 +82,13 @@ process.on('unhandledRejection', error => {
 	console.error('Unhandled promise rejection:', error);
 });
 
+// set game status to help command
+client.on("ready", () =>{
+	client.user.setActivity('!help',
+	{ type: 'LISTENING' })
+	.catch(console.error);
+});
+
 // this event will only trigger one time after logging in
 client.once('ready', () => {
 	console.log('Ready!');
