@@ -105,7 +105,6 @@ const user = {id: count++, username: 'username', discriminator: '1234'}
 
 
 // require the commands and bring them in for testing
-const beep = require('../src/commands/beep').execute
 const ping = require('../src/commands/ping').execute
 
 
@@ -115,12 +114,4 @@ describe('ping', () => {
     await ping(new Message('ping', channel, user))
     expect(channel.lastMessage.content).toBe('Pong.');
   })
-});
-
-// Test 2: beep boop
-describe('beep', () => {
-    it('sends Boop', async () => {
-      await beep(new Message('beep', channel, user))
-      expect(channel.lastMessage.content).toBe('Boop.');
-    })
 });

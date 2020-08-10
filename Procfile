@@ -1,1 +1,1 @@
-worker: node ./src/butlerbot.js
+worker: npm start

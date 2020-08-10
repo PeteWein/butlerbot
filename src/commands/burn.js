@@ -4,7 +4,7 @@ module.exports = {
 	name: 'burn',
     description: 'Insult your target.',
     aliases: ['insult'],
-    usage: '[recipient]',
+    usage: '@recipient',
     args: true,
     execute(message,args) {   
         // to make it look like butlerbot is thinking about it

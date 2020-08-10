@@ -2,8 +2,9 @@ const axios = require('axios');
 
 // This one was actually a little annoying
 module.exports = {
-  name: 'catmeme',
+  name: 'cat',
   description: 'Get a random cat!',
+  aliases: ['catmeme'],
   execute(message) {      
     axios.get('https://api.thecatapi.com/v1/images/search')
     .then(response => {

@@ -15,23 +15,24 @@ const commandFiles = fs.readdirSync('./src/commands').filter(file => file.endsWi
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
 
-	// set a new item in the Collection
-	// with the key as the command name and the value as the exported module
+	// set a new item in the Collection with the key as the command name and the value as the exported module
 	client.commands.set(command.name, command);
 }
 
 //the request response loop
 client.on('message', async message => {
-	if (!message.content.startsWith(prefix) || message.author.bot) return;
-
+	if (!message.content.startsWith(prefix) || message.author.bot) {
+		return;
+	}
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const commandName = args.shift().toLowerCase();
 
 	const command = client.commands.get(commandName)
 		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
-	if (!command) return;
-	
+	if (!command) {
+		return;
+	}
 	// prevent running commands inside of DMs
 	if (command.guildOnly && message.channel.type !== 'text') {
 		return message.reply('I can\'t execute that command inside DMs!');
@@ -70,7 +71,8 @@ client.on('message', async message => {
 	// if all is good, try to execute the command and react with the custom icon
 	try {
 		command.execute(message, args);
-		message.react('740166352979099689');
+		//NOTE: reaction ID is linked to the staging server
+		message.react('742372849179820033');
 	} catch (error) {
 		console.error(error);
 		message.reply('there was an error trying to execute that command!');

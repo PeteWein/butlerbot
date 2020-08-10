@@ -36,6 +36,10 @@ Running the tests are fairly straightforward. From the project root, run either 
 
 This will perform all of the unit tests in the test directory.
 
+### How to perform integration tests
+
+Unfortunately I haven't found an "easy" way to do integration testing and confirm everything is working before actually deploying. Right now, I've set up a development and staging discord server, as we as a butlerbot-dev bot (within the discord developer portal). I updated the `.env` when deploying locally to use the dev `BOT_TOKEN`, which allows me to effectively deploy the bot locally and make changes before pushing to github and subsequently the production environment. The development server is focused on making/testing the changes themselves, where the staging is confirming the changes in behavior between the production and development versions of the code.
+
 #### Linting
 
 You can also run linting on the source code, which can assist with silly syntax errors and is useful in the CI/CD pipeline. This can be from the project root with either fo the below commands:

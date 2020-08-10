@@ -7,7 +7,7 @@ module.exports = {
     execute(message) {          
         let reddit = [
             "JoJoMemes"
-        ]
+        ];
 
         let subreddit = reddit[Math.floor(Math.random() * reddit.length)];
 
