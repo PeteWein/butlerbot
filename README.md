@@ -46,7 +46,7 @@ You can also run linting on the source code, which can assist with silly syntax 
 
 `npm run lint`
 
-`eslint ./src/*`. 
+`eslint ./src/*.js ./src/commands/*.js`.
 
 Due to the fact that there is not simple unit testing/mock framework for discord bots, this [link](https://stackoverflow.com/questions/60916450/jest-testing-discord-bot-commands) was the basis for the utility.
 
