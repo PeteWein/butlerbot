@@ -68,6 +68,7 @@ client.on('message', async message => {
 	setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
 	// if all is good, try to execute the command and react with the custom icon
+	//NOTE: in the dev bot acct, the reaction doesn't work -- I'm not entirely sure why (prod works fine in multiple servers)
 	try {
 		command.execute(message, args);
 		message.react('740166352979099689');
