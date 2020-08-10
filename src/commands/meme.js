@@ -8,8 +8,9 @@ module.exports = {
     execute(message) {          
         let reddit = [
             "memes",
-            "AdviceAnimals",
-            "dankmemes"
+            "dankmemes",
+            "latestagecapitalism",
+            "badphilosophy"
         ]
 
         let subreddit = reddit[Math.floor(Math.random() * reddit.length)];
