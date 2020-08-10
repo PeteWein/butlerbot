@@ -15,8 +15,7 @@ const commandFiles = fs.readdirSync('./src/commands').filter(file => file.endsWi
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
 
-	// set a new item in the Collection
-	// with the key as the command name and the value as the exported module
+	// set a new item in the Collection with the key as the command name and the value as the exported module
 	client.commands.set(command.name, command);
 }
 

@@ -1,6 +1,7 @@
-// right now it's using the below link, I may have it randomly choose another link as well?
-//https://jokes.one/api/joke/#js
-
+/*
+ * right now it's using the below link, I may have it randomly choose another link as well?
+ *https://jokes.one/api/joke/#js
+ */
 const axios = require('axios');
 
 module.exports = {
@@ -15,8 +16,6 @@ module.exports = {
             if ("delivery" in response.data) {
                 let res = response.data.setup.concat('\n', response.data.delivery);
                 message.channel.send(res);
-                //message.channel.send(response.data.setup);
-                //message.channel.send(response.data.delivery); 
             }
             else {
                 message.channel.send(response.data.joke);
