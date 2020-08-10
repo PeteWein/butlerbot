@@ -11,7 +11,7 @@ module.exports = {
             "dankmemes",
             "latestagecapitalism",
             "badphilosophy"
-        ]
+        ];
 
         let subreddit = reddit[Math.floor(Math.random() * reddit.length)];
 

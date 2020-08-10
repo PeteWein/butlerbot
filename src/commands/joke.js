@@ -13,7 +13,7 @@ module.exports = {
           .then(response => {
             //follow the setup/delivery or joke json structure depending on what is received
             if ("delivery" in response.data) {
-                let res = response.data.setup.concat('\n', response.data.delivery)
+                let res = response.data.setup.concat('\n', response.data.delivery);
                 message.channel.send(res);
                 //message.channel.send(response.data.setup);
                 //message.channel.send(response.data.delivery); 
