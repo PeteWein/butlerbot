@@ -5,7 +5,9 @@
 
 I felt this would be an enjoyable little experience in creating a bot, as well as using a language/framework I am unfamiliar with. Please feel free to contribute and use as you feel is appropriate!
 
-https://discordjs.guide/creating-your-bot/commands-with-user-input.html#basic-arguments
+If you are looking to create your own discord bot, below are the guides I used to help:
+
+https://discordjs.guide/
 
 https://medium.com/@mason.spr/hosting-a-discord-js-bot-for-free-using-heroku-564c3da2d23f
 
@@ -15,7 +17,6 @@ From project root, run either of the below commands:
 
 `npm start`
  
-
 `node ./src/butlerbot.js` 
 
 This will start the discord bot from the command line.
@@ -42,7 +43,7 @@ Unfortunately I haven't found an "easy" way to do integration testing and confir
 
 #### Linting
 
-You can also run linting on the source code, which can assist with silly syntax errors and is useful in the CI/CD pipeline. This can be from the project root with either fo the below commands:
+You can also run linting on the source code, which can assist with syntax errors/code style enforcement and is useful in the CI/CD pipeline. This can be from the project root with either fo the below commands:
 
 `npm run lint`
 
