@@ -1,9 +1,9 @@
 const axios = require('axios');
 
 module.exports = {
-	name: 'burn',
+	name: 'insult',
     description: 'Insult your target.',
-    aliases: ['insult'],
+    aliases: ['burn'],
     usage: '@recipient',
     args: true,
     execute(message,args) {   
