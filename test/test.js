@@ -1,16 +1,16 @@
 /*
-Below is all of the necessary code to create a mock Discord environment.
-The goal is the create a way to test commands; the main functionality of butlerbot.js is fairly straightforward.
-Really the main aspects that will adjust/need testing are the commands themselves as they will be the most dynamic
-aspect of this bot and where the majority of errors will occur.
-
-All code was originally sourced from the below link:
-https://stackoverflow.com/questions/60916450/jest-testing-discord-bot-commands
-*/
-const Discord = require('discord.js')
+ *Below is all of the necessary code to create a mock Discord environment.
+ *The goal is the create a way to test commands; the main functionality of butlerbot.js is fairly straightforward.
+ *Really the main aspects that will adjust/need testing are the commands themselves as they will be the most dynamic
+ *aspect of this bot and where the majority of errors will occur.
+ *
+ *All code was originally sourced from the below link:
+ *https://stackoverflow.com/questions/60916450/jest-testing-discord-bot-commands
+ */
+const Discord = require('discord.js');
 
 // a counter so that all the ids are unique
-let count = 0
+let count = 0;
 
 class Guild extends Discord.Guild {
   constructor(client) {
@@ -33,8 +33,8 @@ class Guild extends Discord.Guild {
       mfa_level: 0,
       application_id: null,
       system_channel_id: null
-    })
-    this.client.guilds.cache.set(this.id, this)
+    });
+    this.client.guilds.cache.set(this.id, this);
   }
 }
 
@@ -43,8 +43,8 @@ class TextChannel extends Discord.TextChannel {
     super(guild, {
       id: count++,
       type: 0
-    })
-    this.client.channels.cache.set(this.id, this)
+    });
+    this.client.channels.cache.set(this.id, this);
   }
 
   // you can modify this for other things like attachments and embeds if you need
@@ -70,7 +70,7 @@ class TextChannel extends Discord.TextChannel {
       mentions: [],
       mention_roles: [],
       mention_everyone: false
-    })
+    });
   }
 }
 
@@ -92,26 +92,26 @@ class Message extends Discord.Message {
       mentions: [],
       mention_roles: [],
       mention_everyone: false
-    }, channel)
+    }, channel);
   }
 }
 
-const client = new Discord.Client()
-const guild = new Guild(client)
-const channel = new TextChannel(guild)
+const client = new Discord.Client();
+const guild = new Guild(client);
+const channel = new TextChannel(guild);
 
 // the user that executes the commands
-const user = {id: count++, username: 'username', discriminator: '1234'}
+const user = {id: count++, username: 'username', discriminator: '1234'};
 
 
 // require the commands and bring them in for testing
-const ping = require('../src/commands/ping').execute
+const ping = require('../src/commands/ping').execute;
 
 
 // Test 1: ping pong
 describe('ping', () => {
   it('sends Pong', async () => {
-    await ping(new Message('ping', channel, user))
+    await ping(new Message('ping', channel, user));
     expect(channel.lastMessage.content).toBe('Pong.');
   })
 });
