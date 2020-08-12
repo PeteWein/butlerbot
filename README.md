@@ -1,15 +1,9 @@
 # Butlerbot
 ## A simple discord bot, designed to handle simple tasks.
 
-### Motivation
+### Introduction
 
-I felt this would be an enjoyable little experience in creating a bot, as well as using a language/framework I am unfamiliar with. Please feel free to contribute and use as you feel is appropriate!
-
-If you are looking to create your own discord bot, below are the guides I used to help:
-
-https://discordjs.guide/
-
-https://medium.com/@mason.spr/hosting-a-discord-js-bot-for-free-using-heroku-564c3da2d23f
+Are you tired of insulting your fellow discord server members? Are you annoyed at continuously having to apologize to them? Do you want advice that may or may not be relevant to your situation? Say no more -- Butlerbot is here to help serve you in your more banal of tasks! From grabbing cute pictures of cats or dogs to telling a silly joke and breaking the ice, butlerbot is here to serve!
 
 ### How to run locally
 
@@ -50,6 +44,14 @@ You can also run linting on the source code, which can assist with syntax errors
 `eslint ./src/*.js ./src/commands/*.js`.
 
 Due to the fact that there is not simple unit testing/mock framework for discord bots, this [link](https://stackoverflow.com/questions/60916450/jest-testing-discord-bot-commands) was the basis for the utility.
+
+### Creating your own discord
+
+If you are looking to create your own discord bot, below are the guides I used to help:
+
+https://discordjs.guide/
+
+https://medium.com/@mason.spr/hosting-a-discord-js-bot-for-free-using-heroku-564c3da2d23f
 
 ### Want butlerbot in your discord?
  
