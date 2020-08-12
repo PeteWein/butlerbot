@@ -1,4 +1,4 @@
-## Welcome to your new robotic servant, butlerbot!
+## Welcome to your new robotic servant, Butlerbot!
 
 ![Butlerbot is happy to serve](https://www.colonialdomestics.com/wp-content/uploads/2020/02/butler-hiring.jpg)
 
