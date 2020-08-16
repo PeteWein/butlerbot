@@ -7,7 +7,7 @@
     "testEnvironment": "node"
   },
   "scripts": {
-    "start": "echo \"Butlerbot beginning his shift..\" && nodemon ./src/butlerbot.js",
+    "start": "echo \"Butlerbot beginning his shift..\" && node ./src/butlerbot.js",
     "test": "echo \"Interviewing Butlerbot and checking job references...\" && jest ./test --detectOpenHandles --forceExit",
     "lint": "echo \"Ensuring Butlerbot's suit is up to snuff...\" && eslint ./src/*.js ./src/commands/*.js"
   },
