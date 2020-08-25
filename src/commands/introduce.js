@@ -22,7 +22,7 @@ module.exports = {
     const auth = (!args.length) ? message.author : args[0];
     
     // grab the actual name of the user for the silly comment about them, no tag attached
-    var authName = (!args.length) ? message.author.username : args[0];
+    let authName = (!args.length) ? message.author.username : args[0];
 
     // if they send it with a mention, get the username from the mention id (for the comment)
 	if (authName.startsWith('<') && authName.endsWith('>')) {
@@ -30,7 +30,7 @@ module.exports = {
     }
 
     // randomly select from one of 500 characters to get a title
-    var num = Math.floor(Math.random() * 500) + 1;
+    let num = Math.floor(Math.random() * 500) + 1;
 
     // main request consts, one for the title and one for the comment
     const reqOne = axios.get(`https://www.anapioficeandfire.com/api/characters/${num}`);
@@ -43,7 +43,7 @@ module.exports = {
 
         // grab the aliases and titles, concat, and remove empty entries
         const titleList = responseOne.data.titles.concat(responseOne.data.aliases).filter(v=>v!='');
-        var title = titleList[Math.floor(Math.random() * titleList.length)];
+        let title = titleList[Math.floor(Math.random() * titleList.length)];
         if ( typeof title === 'undefined') {
             // if we get an empty list, overwrite the title var with this and use it
             title = 'Master';
