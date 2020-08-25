@@ -46,7 +46,7 @@ module.exports = {
         var title = titleList[Math.floor(Math.random() * titleList.length)];
         if ( typeof title === 'undefined') {
             // if we get an empty list, overwrite the title var with this and use it
-            var title = 'Master';
+            title = 'Master';
         }
         // send the arrival with title
         message.channel.send(`@here Announcing the arrival of ${title} ${auth}!`);
