@@ -1,6 +1,7 @@
 // grab our dependencies/configs/token
 const fs = require('fs');
 const Discord = require('discord.js');
+const winston = require('winston');
 const { prefix } = require('../config.json');
 require('dotenv').config();
 
@@ -95,6 +96,20 @@ client.on("ready", () =>{
 client.once('ready', () => {
 	console.log('Ready!');
 });
+
+// create our logging objects and levels
+const logger = winston.createLogger({
+	transports: [
+		new winston.transports.Console()
+	],
+	format: winston.format.printf(log => `[${log.level.toUpperCase()}] - ${log.message}`),
+});
+
+client.on('ready', () => logger.log('info', 'The bot is online!'));
+client.on('debug', m => logger.log('debug', m));
+client.on('warn', m => logger.log('warn', m));
+client.on('error', m => logger.log('error', m));
+process.on('uncaughtException', error => logger.log('error', error));
 
 // login to Discord with your app's token and begin running
 client.login(process.env.BOT_TOKEN);
