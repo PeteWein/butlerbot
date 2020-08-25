@@ -20,7 +20,8 @@
     "eslint": "^7.6.0",
     "fs": "0.0.1-security",
     "nodemon": "^2.0.4",
-    "random-puppy": "^1.1.0"
+    "random-puppy": "^1.1.0",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "jest": "^26.2.2"
