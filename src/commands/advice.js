@@ -12,7 +12,7 @@ module.exports = {
     })
     .catch(error => {
       console.log(error);
-      return message.channel.send(`I do not think I can help you with this, sorry master ${message.author}`);
+      return message.channel.send(`I do not think I can help you with this, sorry ${message.author}`);
     }); 
   }
 };
