@@ -2,7 +2,7 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const winston = require('winston');
-const { prefix } = require('../config.json');
+const { prefix, logLevel } = require('../config.json');
 require('dotenv').config();
 
 // create a new Discord objects
@@ -99,7 +99,7 @@ client.once('ready', () => {
 
 // create our logging objects and levels
 const logger = winston.createLogger({
-	level: process.env.LOG_LEVEL,
+	level: `${logLevel}`,
 	transports: [
 		new winston.transports.Console()
 	],
