@@ -104,7 +104,7 @@ class Message extends Discord.Message {
 }
 
 // the user that executes the commands
-const user = {id: count++, username: 'username', discriminator: '1234'};
+const user = {id: count++, username: 'butlerbot', discriminator: '1234'};
 
 const client = new Discord.Client();
 const guild = new Guild(client);
@@ -121,7 +121,7 @@ describe('ping', () => {
   })
 });
 
-// Test 2 advice API call
+// Test 2: advice API call to ensure it works
 const advice = require('../src/commands/advice').execute;
 describe('Advice', () => {
   it('returns advice from mock API call', async () => {
@@ -133,6 +133,16 @@ describe('Advice', () => {
       }
     });    
     await advice(new Message('', channel, user));
+    expect(channel.lastMessage.content).toBe('Mock advice response.');
+  });
+});
+
+// Test 3: fail condition in advice api call
+describe('Advice Failure', () => {
+  it('go through the failures in the advice API call', async () => {
+    axios.get.mockRejectedValue(new Error('Mock Error'));    
+    await advice(new Message('', channel, user));
+    // we will assume the fail state does nothing (it catches the error and sends a message, but we don't care about that as much)
     expect(channel.lastMessage.content).toBe('Mock advice response.');
   });
 });
