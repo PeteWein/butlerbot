@@ -1,3 +1,14 @@
+const Discord = require('discord.js');
+const axios = require('axios');
+/*
+ * This next step is critical for testing much of the bot's functionality.
+ * We need to mock all of our axios requests so that we can:
+ * A: ignore any network calls, speeding up our unit testing
+ * B: ensure the results are repeatable (a lot of the API calls used return random results)
+ * C: Call it all requests within the above discord mock classes
+ */
+jest.mock('axios');
+
 /*
  *Below is all of the necessary code to create a mock Discord environment.
  *The goal is the create a way to test commands; the main functionality of butlerbot.js is fairly straightforward.
@@ -6,12 +17,9 @@
  *
  *All code was originally sourced from the below link:
  *https://stackoverflow.com/questions/60916450/jest-testing-discord-bot-commands
+
  */
-const Discord = require('discord.js');
-
-// a counter so that all the ids are unique
 let count = 0;
-
 class Guild extends Discord.Guild {
   constructor(client) {
     super(client, {
@@ -96,22 +104,36 @@ class Message extends Discord.Message {
   }
 }
 
+// the user that executes the commands
+const user = {id: count++, username: 'username', discriminator: '1234'};
+
 const client = new Discord.Client();
 const guild = new Guild(client);
 const channel = new TextChannel(guild);
 
-// the user that executes the commands
-const user = {id: count++, username: 'username', discriminator: '1234'};
-
-
-// require the commands and bring them in for testing
-const ping = require('../src/commands/ping').execute;
 
 
 // Test 1: ping pong
+const ping = require('../src/commands/ping').execute;
 describe('ping', () => {
   it('sends Pong', async () => {
     await ping(new Message('ping', channel, user));
     expect(channel.lastMessage.content).toBe('Pong.');
   })
+});
+
+// Test 2 advice API call
+const advice = require('../src/commands/advice').execute;
+describe('Advice', () => {
+  it('returns advice from mock API call', async () => {
+    axios.get.mockResolvedValue({
+      data: {
+        slip: {
+          advice: "Mock advice response."
+        }
+      }
+    });    
+    await advice(new Message('', channel, user));
+    expect(channel.lastMessage.content).toBe('Mock advice response.');
+  });
 });
