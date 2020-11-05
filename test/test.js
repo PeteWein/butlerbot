@@ -141,6 +141,6 @@ describe('Advice', () => {
 describe('Advice Failure', () => {
   it('go through the failures in the advice API call', async () => {
     axios.get.mockRejectedValue(new Error('Mock Error'));    
-    await expect(await advice(new Message('', channel, user))).toBeUndefined();    
+    await expect(advice(new Message('', channel, user))).toBeUndefined();    
   });
 });
