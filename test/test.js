@@ -6,18 +6,17 @@ const axios = require('axios');
  * A: ignore any network calls, speeding up our unit testing
  * B: ensure the results are repeatable (a lot of the API calls used return random results)
  * C: Call it all requests within the above discord mock classes
+ * For more info: https://dev.to/zaklaughton/the-only-3-steps-you-need-to-mock-an-api-call-in-jest-39mb
  */
 jest.mock('axios');
 
 /*
- *Below is all of the necessary code to create a mock Discord environment.
- *The goal is the create a way to test commands; the main functionality of butlerbot.js is fairly straightforward.
- *Really the main aspects that will adjust/need testing are the commands themselves as they will be the most dynamic
- *aspect of this bot and where the majority of errors will occur.
- *
- *All code was originally sourced from the below link:
- *https://stackoverflow.com/questions/60916450/jest-testing-discord-bot-commands
-
+ * Below is all of the necessary code to create a mock Discord environment.
+ * The goal is the create a way to test commands; the main functionality of butlerbot.js is fairly straightforward.
+ * Really the main aspects that will adjust/need testing are the commands themselves as they will be the most dynamic
+ * aspect of this bot and where the majority of errors will occur.
+ * All code was originally sourced from the below link:
+ * https://stackoverflow.com/questions/60916450/jest-testing-discord-bot-commands
  */
 let count = 0;
 class Guild extends Discord.Guild {
