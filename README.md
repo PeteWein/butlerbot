@@ -1,6 +1,8 @@
 # Butlerbot
 ## A simple discord bot, designed to handle simple tasks.
 
+![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
+
 ### Introduction
 
 Are you tired of insulting your fellow discord server members? Are you annoyed at continuously having to apologize to them? Do you want advice that may or may not be relevant to your situation? Say no more -- Butlerbot is here to help serve you in your more banal of tasks! From grabbing cute pictures of cats or dogs to telling a silly joke and breaking the ice, butlerbot is here to serve!
