@@ -138,9 +138,18 @@ describe('Advice', () => {
 });
 
 // Test 3: fail condition in advice api call
-describe('Advice Failure', () => {
-  it('go through the failures in the advice API call', async () => {
+describe('Advice', () => {
+  it('returns nothing on failure', async () => {
     axios.get.mockRejectedValue(new Error('Mock Error'));    
     await expect(advice(new Message('', channel, user))).toBeUndefined();    
+  });
+});
+
+// Test 4: check apology command
+const apology = require('../src/commands/apology').execute;
+describe('Apology', () => {
+  it('should return a message on behalf of sender', async () => {
+  await apology(new Message('!apology @Recipient', channel, user));
+  expect(channel.lastMessage.content).toEqual(expect.stringContaining('on behalf of <@0>'));  // sender is <@count>
   });
 });
