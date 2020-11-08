@@ -153,3 +153,13 @@ describe('Apology', () => {
   expect(channel.lastMessage.content).toEqual(expect.stringContaining('on behalf of <@0>'));  // sender is <@count>
   });
 });
+
+// Test 5: Butlerbot embedded message
+const butlerbot = require('../src/commands/butlerbot').execute;
+const sendTime = Date.now();
+describe('Butlerbot', () => {
+  it('sends an embedded message', async () => {
+    await butlerbot(new Message('', channel, user));
+    expect(channel.lastMessage.content.timestamp).toBe(sendTime);
+  })
+});
