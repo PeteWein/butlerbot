@@ -1,3 +1,6 @@
+/* eslint-disable semi */
+/* eslint-disable no-undef */
+
 const Discord = require('discord.js');
 const axios = require('axios');
 /*
@@ -149,11 +152,10 @@ describe('Apology', () => {
 
 // Butlerbot embedded message
 const butlerbot = require('../src/commands/butlerbot').execute;
-const sendTime = Date.now();
 describe('Butlerbot', () => {
   it('sends an embedded message', async () => {
     await butlerbot(new Message('', channel, user));
-    expect(channel.lastMessage.content.timestamp).toBeGreaterThanOrEqual(sendTime);
+    expect(channel.lastMessage.content.author.url).toBe('https://github.com/PeteWein');
   })
 });
 
@@ -232,19 +234,6 @@ describe('Dog', () => {
     await expect(dog(new Message('', channel, user))).toBeUndefined();    
   });
 });
-
-/*
-// help
-const help = require('../src/commands/help').execute;
-describe('Help', () => {
-  it('sends message with help info on all commands', async () => {
-    await help(new Message('!help', channel, user));
-    expect(channel.lastMessage.content).toEqual(expect.stringContaining('https://petewein.github.io/butlerbot/'));
-  })
-});
-*/
-
-
 
 // ping pong
 const ping = require('../src/commands/ping').execute;
