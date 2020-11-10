@@ -1,14 +1,17 @@
 const Discord = require('discord.js');
 const axios = require('axios');
 /*
- * This next step is critical for testing much of the bot's functionality.
+ * This next steps are critical for testing much of the bot's functionality.
  * We need to mock all of our axios requests so that we can:
  * A: ignore any network calls, speeding up our unit testing
  * B: ensure the results are repeatable (a lot of the API calls used return random results)
  * C: Call it all requests within the above discord mock classes
+ * D: Remove our mock errors from the console for clarity
  * For more info: https://dev.to/zaklaughton/the-only-3-steps-you-need-to-mock-an-api-call-in-jest-39mb
+ * For disabling console.log info: https://stackoverflow.com/questions/44467657/jest-better-way-to-disable-console-inside-unit-tests
  */
 jest.mock('axios');
+jest.spyOn(global.console, 'log').mockImplementation(() => jest.fn());
 
 /*
  * Below is all of the necessary code to create a mock Discord environment.
@@ -111,17 +114,7 @@ const guild = new Guild(client);
 const channel = new TextChannel(guild);
 
 
-
-// Test 1: ping pong
-const ping = require('../src/commands/ping').execute;
-describe('ping', () => {
-  it('sends Pong', async () => {
-    await ping(new Message('ping', channel, user));
-    expect(channel.lastMessage.content).toBe('Pong.');
-  })
-});
-
-// Test 2: advice API call to ensure it works
+// advice API call to ensure it works
 const advice = require('../src/commands/advice').execute;
 describe('Advice', () => {
   it('returns advice from mock API call', async () => {
@@ -137,7 +130,7 @@ describe('Advice', () => {
   });
 });
 
-// Test 3: fail condition in advice api call
+// fail condition in advice api call
 describe('Advice', () => {
   it('returns nothing on failure', async () => {
     axios.get.mockRejectedValue(new Error('Mock Error'));    
@@ -145,7 +138,7 @@ describe('Advice', () => {
   });
 });
 
-// Test 4: check apology command
+// check apology command
 const apology = require('../src/commands/apology').execute;
 describe('Apology', () => {
   it('should return a message on behalf of sender', async () => {
@@ -154,12 +147,110 @@ describe('Apology', () => {
   });
 });
 
-// Test 5: Butlerbot embedded message
+// Butlerbot embedded message
 const butlerbot = require('../src/commands/butlerbot').execute;
 const sendTime = Date.now();
 describe('Butlerbot', () => {
   it('sends an embedded message', async () => {
     await butlerbot(new Message('', channel, user));
-    expect(channel.lastMessage.content.timestamp).toBe(sendTime);
+    expect(channel.lastMessage.content.timestamp).toBeGreaterThanOrEqual(sendTime);
+  })
+});
+
+// cat API call to ensure it works
+const cat = require('../src/commands/cat').execute;
+describe('Cat', () => {
+  it('returns cat from mock API call', async () => {
+    axios.get.mockResolvedValue({
+      data: [{
+        url: 'https://sample_url.com'
+        }
+      ]
+    });    
+    await cat(new Message('', channel, user));
+    expect(channel.lastMessage.content).toBe('https://sample_url.com');
+  });
+});
+
+// fail condition in cat api call
+describe('Cat', () => {
+  it('returns nothing on failure', async () => {
+    axios.get.mockRejectedValue(new Error('Mock Error'));    
+    await expect(cat(new Message('', channel, user))).toBeUndefined();    
+  });
+});
+
+// catfact API call to ensure it works
+const catfact = require('../src/commands/catfact').execute;
+describe('Catfact', () => {
+  it('returns cat fact from mock API call', async () => {
+    axios.get.mockResolvedValue({
+      data: {
+        text: 'Sample cat fact'
+      }
+    });    
+    await catfact(new Message('', channel, user));
+    expect(channel.lastMessage.content).toBe('Sample cat fact');
+  });
+});
+
+// fail condition in cat api call
+describe('Catfact', () => {
+  it('returns nothing on failure', async () => {
+    axios.get.mockRejectedValue(new Error('Mock Error'));    
+    await expect(catfact(new Message('', channel, user))).toBeUndefined();    
+  });
+});
+
+// documentation
+const documentation = require('../src/commands/documentation').execute;
+describe('Documentation', () => {
+  it('sends message with link to github pages', async () => {
+    await documentation(new Message('', channel, user));
+    expect(channel.lastMessage.content).toEqual(expect.stringContaining('https://petewein.github.io/butlerbot/'));
+  })
+});
+
+// dog API call to ensure it works
+const dog = require('../src/commands/dog').execute;
+describe('Dog', () => {
+  it('returns cat fact from mock API call', async () => {
+    axios.get.mockResolvedValue({
+      data: {
+        message: 'Sample dog image'
+      }
+    });    
+    await dog(new Message('', channel, user));
+    expect(channel.lastMessage.content).toBe('Sample dog image');
+  });
+});
+
+// fail condition in cat api call
+describe('Dog', () => {
+  it('returns nothing on failure', async () => {
+    axios.get.mockRejectedValue(new Error('Mock Error'));    
+    await expect(dog(new Message('', channel, user))).toBeUndefined();    
+  });
+});
+
+/*
+// help
+const help = require('../src/commands/help').execute;
+describe('Help', () => {
+  it('sends message with help info on all commands', async () => {
+    await help(new Message('!help', channel, user));
+    expect(channel.lastMessage.content).toEqual(expect.stringContaining('https://petewein.github.io/butlerbot/'));
+  })
+});
+*/
+
+
+
+// ping pong
+const ping = require('../src/commands/ping').execute;
+describe('Ping', () => {
+  it('sends Pong', async () => {
+    await ping(new Message('ping', channel, user));
+    expect(channel.lastMessage.content).toBe('Pong.');
   })
 });
