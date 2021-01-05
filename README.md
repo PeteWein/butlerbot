@@ -2,6 +2,8 @@
 ## A simple discord bot, designed to handle simple tasks.
 
 ![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
+![Docker Image CI](https://github.com/PeteWein/butlerbot/workflows/Docker%20Image%20CI/badge.svg?branch=master)
+
 
 ### Introduction
 
