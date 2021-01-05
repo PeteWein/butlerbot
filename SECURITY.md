@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-Below are the versions of the bot that will support security updates. As of the time of this file's commit, all versions will be supported; that is subject to changes in the future.
+Below are the versions of the bot that will support security updates. As of the time of this file's commit, all versions will be supported; that is subject to changes in the future. Please note that some non-relevant security updates may not be immediately addressed if it creates an issue with the functionality of the bot.
 
 | Version | Supported          |
 | ------- | ------------------ |

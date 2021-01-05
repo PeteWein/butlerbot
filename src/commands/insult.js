@@ -14,7 +14,7 @@ module.exports = {
         axios.get('https://evilinsult.com/generate_insult.php?lang=en&type=json')
           .then(response => {
             // append our target to the insult
-            let res = response.data.insult.replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&gt;/g, '>');
+            let res = response.data.insult.replace(/&quot;/g, '\\"').replace(/&amp;/g, '\\&\\').replace(/&gt;/g, '\\>\\');
             message.channel.send(args[0].concat(', ', res));
         })
         .then(() => message.channel.stopTyping())
