@@ -69,14 +69,25 @@ client.on('message', async message => {
 	timestamps.set(message.author.id, now);
 	setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
-	// if all is good, try to execute the command and react with the custom icon
+	/* 
+	 * The main execution of the commands themselves. The major flow is:
+	 * 1. Try to execute the command under the standard flow
+	 * 2. If it can't include the client object and try again
+	 * 3. If it can't do either, write the error to console and tell the user there was an error
+	 */ 
 	try {
-		command.execute(client, message, args);
+		command.execute(message, args);
 		//NOTE: reaction ID is linked to the staging server
 		message.react('742372849179820033');
 	} catch (error) {
-		console.error(error);
-		message.reply('there was an error trying to execute that command!');
+		if (error.message === 'Cannot read property \'cache\' of undefined') {
+			command.execute(client, message, args);
+			//NOTE: reaction ID is linked to the staging server
+			message.react('742372849179820033');
+		} else {
+			console.error(error);
+			message.reply('there was an error trying to execute that command!');
+		}
 	}
 });
 
