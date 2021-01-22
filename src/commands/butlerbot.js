@@ -10,7 +10,7 @@ module.exports = {
 		.setColor('#9b30af')
 		.setTitle('Butlerbot is happy to serve.')
 		.setURL('https://petewein.github.io/butlerbot/')
-		.setAuthor('Butlerbot', 'https://cdn0.iconfinder.com/data/icons/scrum-team/448/cloud_ops-512.png', 'https://github.com/PeteWein')
+		.setAuthor('Butlerbot', 'https://cdn0.iconfinder.com/data/icons/scrum-team/448/cloud_ops-512.png', 'https://github.com/PeteWein/butlerbot')
 		.setDescription('A small bot designed to help with simple tasks.')
 		.setThumbnail('https://funnynamesblog.files.wordpress.com/2015/04/butler-offer.jpg')
 		.addFields(
