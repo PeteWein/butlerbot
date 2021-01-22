@@ -71,7 +71,7 @@ client.on('message', async message => {
 
 	// if all is good, try to execute the command and react with the custom icon
 	try {
-		command.execute(message, args);
+		command.execute(client, message, args);
 		//NOTE: reaction ID is linked to the staging server
 		message.react('742372849179820033');
 	} catch (error) {
@@ -90,11 +90,6 @@ client.on("ready", () =>{
 	client.user.setActivity(`${prefix}help`,
 	{ type: 'LISTENING' })
 	.catch(console.error);
-});
-
-// this event will only trigger one time after logging in
-client.once('ready', () => {
-	console.log('Ready!');
 });
 
 // create our logging objects and levels
