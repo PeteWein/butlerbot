@@ -5,7 +5,7 @@ module.exports = {
   name: 'cat',
   description: 'Get a random cat!',
   aliases: ['catmeme'],
-  execute(client, message) {      
+  execute(message) {      
     axios.get('https://api.thecatapi.com/v1/images/search')
     .then(response => {
       message.channel.send(response.data[0].url);

@@ -5,7 +5,7 @@ module.exports = {
     name: 'meme',
     description: 'Get a top meme from Reddit.',
     aliases: ['memes'],
-    execute(client, message) {          
+    execute(message) {          
         let reddit = [
             "memes",
             "dankmemes",

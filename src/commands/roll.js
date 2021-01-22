@@ -15,7 +15,7 @@ module.exports = {
     usage: '#dType, ex: 1d6, 2d8, 1d6 + 1d12, 1d4+1d6, 1d4 1d12',
     args: true,
     cooldown: 0.1,
-    execute(client, message,args) {   
+    execute(message,args) {   
         /*
          * Below is what each var represents:
          * dieTotal: total die roll, starting at 0 and incremented up based on die roll

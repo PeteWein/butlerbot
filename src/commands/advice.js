@@ -5,7 +5,7 @@ module.exports = {
   name: 'advice',
   description: 'Ask for butlerbot\'s advice on a question.',
   aliases: ['advise'],
-  execute(client, message) {      
+  execute(message) {      
     axios.get('https://api.adviceslip.com/advice')
     .then(response => {
       message.channel.send(response.data.slip.advice);

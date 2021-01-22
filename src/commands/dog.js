@@ -4,7 +4,7 @@ const axios = require('axios');
 module.exports = {
   name: 'dog',
   description: 'Get a random dog!',
-  execute(client, message) {      
+  execute(message) {      
     axios.get('https://dog.ceo/api/breeds/image/random')
     .then(response => {
       message.channel.send(response.data.message);
