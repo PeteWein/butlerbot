@@ -14,7 +14,7 @@ module.exports = {
   aliases: ['intro', 'introduction', 'welcome'],
   usage: '@recipient or empty for self introduction.',
   cooldown: 1,  
-  execute(message, args) {
+  execute(client, message, args) {
     
     message.channel.startTyping();
 

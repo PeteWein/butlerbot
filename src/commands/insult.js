@@ -7,7 +7,7 @@ module.exports = {
     usage: '@recipient',
     args: true,
     cooldown: 1,
-    execute(message,args) {   
+    execute(client, message,args) {   
         // to make it look like butlerbot is thinking about it
         message.channel.startTyping();
         // grab an insult from this api

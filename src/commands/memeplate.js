@@ -3,7 +3,7 @@ const axios = require('axios');
 module.exports = {
     name: 'memeplate',
     description: 'Get a random meme template from imgflip!',
-    execute(message) { 
+    execute(client, message) { 
         message.channel.startTyping();
         axios.get('https://api.imgflip.com/get_memes')
           .then(response => {

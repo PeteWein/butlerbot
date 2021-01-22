@@ -5,7 +5,7 @@ module.exports = {
   name: 'catfact',
   description: 'Get a random cat fact.',
   aliases: ['catfacts'],
-  execute(message) {      
+  execute(client, message) {      
     axios.get('https://cat-fact.herokuapp.com/facts/random')
     .then(response => {
       message.channel.send(response.data.text);

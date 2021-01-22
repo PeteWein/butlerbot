@@ -238,8 +238,8 @@ describe('Dog', () => {
 // ping pong
 const ping = require('../src/commands/ping').execute;
 describe('Ping', () => {
-  it('sends Pong', async () => {
-    await ping(new Message('ping', channel, user));
-    expect(channel.lastMessage.content).toBe('Pong.');
+  it('sends latency with ms', async () => {
+    await ping(new Message('', channel, user));
+    expect(channel.lastMessage.content).toEqual(expect.stringContaining('ms'));
   })
 });

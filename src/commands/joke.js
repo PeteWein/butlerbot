@@ -8,7 +8,7 @@ module.exports = {
 	name: 'joke',
     description: 'Send a silly joke!',
     aliases: ['jest'],
-    execute(message) {
+    execute(client, message) {
         // grab a joke from this api
         axios.get('https://sv443.net/jokeapi/v2/joke/Miscellaneous,Dark,Pun?blacklistFlags=nsfw,religious,political,racist,sexist')
           .then(response => {

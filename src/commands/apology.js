@@ -6,7 +6,7 @@ module.exports = {
     aliases: ['sorry', 'apologize', "apologise", "mybad"],
     usage: '@recipient',
     args: true,
-    execute(message,args) {   
+    execute(client, message,args) {   
         let apologyMessages = [
             "my deepest apologies. This is a mistake I will not make again and I volunteer a paycheck reduction.",
             "I owe you an apology. It was never my intention to cause you distress. " + 
