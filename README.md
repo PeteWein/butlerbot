@@ -1,6 +1,8 @@
 # Butlerbot
 ## A simple discord bot, designed to handle simple tasks.
 
+[![Discord Bots](https://top.gg/api/widget/740165717688582256.svg)](https://top.gg/bot/740165717688582256)
+
 ![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
