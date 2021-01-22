@@ -150,15 +150,6 @@ describe('Apology', () => {
   });
 });
 
-// Butlerbot embedded message
-const butlerbot = require('../src/commands/butlerbot').execute;
-describe('Butlerbot', () => {
-  it('sends an embedded message', async () => {
-    await butlerbot(new Message('', channel, user));
-    expect(channel.lastMessage.content.author.url).toBe('https://github.com/PeteWein');
-  })
-});
-
 // cat API call to ensure it works
 const cat = require('../src/commands/cat').execute;
 describe('Cat', () => {
