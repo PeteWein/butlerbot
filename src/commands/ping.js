@@ -1,8 +1,8 @@
 module.exports = {
     name: 'ping',
-    description: 'Ping!',
+    description: 'Ping the discord bot to check latency.',
     cooldown: 5,
     execute(message) {
-        message.channel.send('Pong.');
+        message.channel.send(`🏓 pong! Latency is ${Date.now() - message.createdTimestamp}ms.`);
     },
 };
