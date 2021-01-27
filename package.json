@@ -23,6 +23,7 @@
     "dotenv": "^8.2.0",
     "eslint": "^7.6.0",
     "fs": "0.0.1-security",
+    "jsdoc": "^3.6.6",
     "node-notifier": "^8.0.1",
     "nodemon": "^2.0.4",
     "random-puppy": "^1.1.0",
