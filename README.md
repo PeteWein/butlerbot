@@ -65,6 +65,7 @@ npm test
 # full jest cli option
 jest ./test --detectOpenHandles --forceExit --coverage --runInBand
 ```
+
 In addition to performing all of the unit tests, this test suite will also produce a coverage directory that reports the results of the test. These can be found in the `coverage/` directory at the project root. You can also view a report visualization at `file:///<PATH>/<TO>/<REPO>/butlerbot/coverage/lcov-report/index.html`.
 
 Due to the fact that there is no simple unit testing/mock framework for discord bots, this [stackoverflow answer](https://stackoverflow.com/questions/60916450/jest-testing-discord-bot-commands) was the basis for the unit testing.
@@ -73,6 +74,18 @@ Due to the fact that there is no simple unit testing/mock framework for discord 
 
 Unfortunately I haven't found an "easy" way to do integration testing and confirm everything is working before actually deploying. Right now, I've set up a development and staging discord server, as well as a butlerbot-dev bot (within the [discord developer portal](https://discord.com/developers/applications), similar to when the bot is first created). I updated the `.env` when deploying locally to use the dev `BOT_TOKEN`, which allows me to deploy the bot locally and make changes before pushing to github and subsequently the production environment. The development server is focused on making/testing the changes themselves, where the staging is confirming the changes in behavior between the production and development versions of the code.
 
+### Documentation
+
+This discord bot uses JSDoc to auto-generate the documentation. This can be created locally using the following commands:
+
+```
+# (recommended) npm cli option
+npm run doc
+
+# cli option without npm
+jsdoc -d doc --configure jsconf.json ./src/butlerbot.js
+```
+NOTE: I'm still working on auto-deploying this documentation to the github pages.
 
 ### External Documentation
 
@@ -81,6 +94,12 @@ If you are looking to create your own discord bot, below are the guides I found 
 https://discordjs.guide/
 
 https://medium.com/@mason.spr/hosting-a-discord-js-bot-for-free-using-heroku-564c3da2d23f
+
+https://alligator.io/js/jsdoc/
+
+https://github.com/jsdoc/jsdoc
+
+https://github.com/andstor/jsdoc-action
 
 ### Want butlerbot in your discord?
  

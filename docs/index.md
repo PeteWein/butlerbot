@@ -6,6 +6,10 @@ Are you tired of insulting your fellow discord server members? Are you annoyed a
 
 After inviting, feel free to use the `!help` command to see what services he offers!
 
+## Documentation
+
+Although this is a simple landing page, detailed documentation can be found via. the [auto-generated docs here.](./documentation/index.html). These were created using JSDoc.
+
 ## Interest in having Butlerbot join your discord?
 
 Please feel free to follow the link [here](https://discord.com/api/oauth2/authorize?client_id=740165717688582256&permissions=8&scope=bot) to have butlerbot join your discord server.

@@ -1,3 +1,9 @@
+/**
+ * @constructor
+ * @author PeteWein
+ * @version 1.0.0
+ * @copyright MIT License (c) 2021
+ */
 // grab our dependencies/configs/token
 const fs = require('fs');
 const Discord = require('discord.js');
