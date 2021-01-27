@@ -2,23 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: apology</title>
+    <title>Module: apology | Module: apology</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-jsdoc.css">
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+    <link type="text/css" rel="stylesheet" href="styles/tui-doc.css">
+
+    
 </head>
-
 <body>
+<nav class="lnb" id="lnb">
+    <div class="logo" style="width: 60px; height: 20px">
+        
+            <a href="https://github.com/PeteWein/butlerbot" rel="noopener noreferrer" target="_blank">
+                <img src="../butlerbot_logo.png" width="100%" height="100%">
+            </a>
+        
+    </div>
+    <div class="title">
+        <h1><a href="index.html" class="link">Module: apology</a></h1>
+        
+    </div>
+    <div class="search-container" id="search-container">
+        <input type="text" placeholder="Search">
+        <ul></ul>
+    </div>
+    
+    <div class="lnb-api hidden"><h3>Modules</h3><ul><li><a href="module-advice.html">advice</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:advice_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-advice.html#~adviceApi">adviceApi</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="module-advice.html#~execute">execute</a></li><li><a href="module-advice.html#~getAdvice">getAdvice</a></li></ul></div></li><li><a href="module-apology.html">apology</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:apology_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-apology.html#~apology">apology</a></li><li><a href="module-apology.html#~apologyMessages">apologyMessages</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="module-apology.html#~execute">execute</a></li><li><a href="module-apology.html#~getApology">getApology</a></li></ul></div></li><li><a href="module-butlerbot.html">butlerbot</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:butlerbot_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-butlerbot.html#~addFields">addFields</a></li><li><a href="module-butlerbot.html#~author">author</a></li><li><a href="module-butlerbot.html#~color">color</a></li><li><a href="module-butlerbot.html#~description">description</a></li><li><a href="module-butlerbot.html#~embed">embed</a></li><li><a href="module-butlerbot.html#~footer">footer</a></li><li><a href="module-butlerbot.html#~image">image</a></li><li><a href="module-butlerbot.html#~thumbnail">thumbnail</a></li><li><a href="module-butlerbot.html#~title">title</a></li><li><a href="module-butlerbot.html#~url">url</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="module-butlerbot.html#~embedMessage">embedMessage</a></li><li><a href="module-butlerbot.html#~execute">execute</a></li></ul></div></li><li><a href="module-cat.html">cat</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:cat_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-cat.html#~catApi">catApi</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="module-cat.html#~catImage">catImage</a></li><li><a href="module-cat.html#~execute">execute</a></li></ul></div></li><li><a href="module-catfact.html">catfact</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:catfact_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-catfact.html#~catFactApi">catFactApi</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="module-catfact.html#~catFactApiCall">catFactApiCall</a></li><li><a href="module-catfact.html#~execute">execute</a></li></ul></div></li><li><a href="module-documentation.html">documentation</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:documentation_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="module-documentation.html#~execute">execute</a></li></ul></div></li><li><a href="module-dog.html">dog</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:dog_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-dog.html#~dogApi">dogApi</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="module-dog.html#~dogApiCall">dogApiCall</a></li><li><a href="module-dog.html#~execute">execute</a></li></ul></div></li><li><a href="module-help.html">help</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:help_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-help.html#~commands">commands</a></li><li><a href="module-help.html#~data">data</a></li><li><a href="module-help.html#~name">name</a></li><li><a href="module-help.html#~name">name</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="module-help.html#~execute">execute</a></li></ul></div></li><li><a href="module-insult.html">insult</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:insult_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-insult.html#~insultApi">insultApi</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="module-insult.html#~execute">execute</a></li><li><a href="module-insult.html#~getApology">getApology</a></li></ul></div></li><li><a href="module-introduce.html">introduce</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:introduce_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-introduce.html#~auth">auth</a></li><li><a href="module-introduce.html#~authName">authName</a></li><li><a href="module-introduce.html#~num">num</a></li><li><a href="module-introduce.html#~reqOne">reqOne</a></li><li><a href="module-introduce.html#~reqTwo">reqTwo</a></li><li><a href="module-introduce.html#~responseOne">responseOne</a></li><li><a href="module-introduce.html#~responseTwo">responseTwo</a></li><li><a href="module-introduce.html#~title">title</a></li><li><a href="module-introduce.html#~titleList">titleList</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="module-introduce.html#~execute">execute</a></li></ul></div></li><li><a href="module-joke.html">joke</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:joke_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-joke.html#~jokeApi">jokeApi</a></li><li><a href="module-joke.html#~res">res</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="module-joke.html#~execute">execute</a></li><li><a href="module-joke.html#~jokeApiCall">jokeApiCall</a></li></ul></div></li><li><a href="module-meme.html">meme</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:meme_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-meme.html#~reddit">reddit</a></li><li><a href="module-meme.html#~subreddit">subreddit</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="module-meme.html#~apiImageCrawl">apiImageCrawl</a></li><li><a href="module-meme.html#~execute">execute</a></li></ul></div></li><li><a href="module-ping.html">ping</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:ping_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="module-ping.html#~execute">execute</a></li></ul></div></li><li><a href="module-prune.html">prune</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:prune_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-prune.html#~amount">amount</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="module-prune.html#~execute">execute</a></li><li><a href="module-prune.html#~pruneChannel">pruneChannel</a></li></ul></div></li><li><a href="module-roll.html">roll</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:roll_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-roll.html#~diceArray">diceArray</a></li><li><a href="module-roll.html#~dieArray">dieArray</a></li><li><a href="module-roll.html#~dieTotal">dieTotal</a></li><li><a href="module-roll.html#~userRoll">userRoll</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="module-roll.html#~execute">execute</a></li></ul></div></li></ul></div>
+</nav>
+<div id="resizer"></div>
 
-<div id="main">
-
-    <h1 class="page-title">Module: apology</h1>
-
+<div class="main" id="main">
     
 
 
@@ -28,6 +48,7 @@
 
 <header>
     
+        <h2>apology</h2>
         
             
         
@@ -35,27 +56,67 @@
 </header>
 
 <article>
-    <div class="container-overview">
     
-        
-            <div class="description"><p>Ask butlerbot to send an apology on your behalf.</p></div>
-        
-
+        <div class="container-overview">
         
             
+                <div class="description"><p>Ask butlerbot to send an apology on your behalf.</p></div>
+            
+
+            
+                
+
+<dt>
+    
+</dt>
+<dd>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">string</span>
 
 
 
 
 
+- <ul>
+<li>apology message (as a message to discord text channel)</li>
+</ul>
 
 
 
 
+            
+    </div>
+    
 
-
-
-
+    
 
 
 <dl class="details">
@@ -85,13 +146,6 @@
     
 
     
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="apology.js.html">apology.js</a>, <a href="apology.js.html#line1">line 1</a>
-    </li></ul></dd>
-    
-
-    
 
     
 
@@ -99,51 +153,14 @@
 </dl>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <ul>
-<li>apology message (as a message to discord text channel)</li>
-</ul>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">string</span>
-
-
-    </dd>
-</dl>
-
     
 
+</dd>
 
-
-
-
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -160,29 +177,42 @@
     
         <h3 class="subsection-title">Members</h3>
 
-        
+        <dl>
             
-<h4 class="name" id="~apology"><span class="type-signature">(inner) </span>apology<span class="type-signature"> :string</span></h4>
+
+<dt>
+<h4 class="name" id="~apology">
+    <span class="type-signature"><span class="icon green">inner</span> </span>apology<span class="type-signature"> :string</span>
+    
+    <div class="container-source members">
+        <code><a href="apology.js.html">apology.js</a></code>,
+        <code><a href="apology.js.html#line45">line 45</a></code>
+    </div>
+    
+</h4>
 
 
 <p class="summary"><p>randomly selected an apology from the list of apologyMessages</p></p>
 
+</dt>
+<dd>
+    
 
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
+    <!--
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
 <span class="param-type">string</span>
 
 
-        </li>
-    </ul>
+            </li>
+        </ul>
+    
+    -->
 
-
-
+    
 
 
 <dl class="details">
@@ -212,13 +242,6 @@
     
 
     
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="apology.js.html">apology.js</a>, <a href="apology.js.html#line45">line 45</a>
-    </li></ul></dd>
-    
-
-    
 
     
 
@@ -226,33 +249,47 @@
 </dl>
 
 
+    
 
-
-
+    
+</dd>
 
         
             
-<h4 class="name" id="~apologyMessages"><span class="type-signature">(inner) </span>apologyMessages<span class="type-signature"> :Array.&lt;string></span></h4>
+
+<dt>
+<h4 class="name" id="~apologyMessages">
+    <span class="type-signature"><span class="icon green">inner</span> </span>apologyMessages<span class="type-signature"> :Array.&lt;string></span>
+    
+    <div class="container-source members">
+        <code><a href="apology.js.html">apology.js</a></code>,
+        <code><a href="apology.js.html#line25">line 25</a></code>
+    </div>
+    
+</h4>
 
 
 <p class="summary"><p>list of pre-generated apology messages</p></p>
 
+</dt>
+<dd>
+    
 
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
+    <!--
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
 <span class="param-type">Array.&lt;string></span>
 
 
-        </li>
-    </ul>
+            </li>
+        </ul>
+    
+    -->
 
-
-
+    
 
 
 <dl class="details">
@@ -282,13 +319,6 @@
     
 
     
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="apology.js.html">apology.js</a>, <a href="apology.js.html#line25">line 25</a>
-    </li></ul></dd>
-    
-
-    
 
     
 
@@ -296,40 +326,51 @@
 </dl>
 
 
+    
 
+    
+</dd>
 
-
-
-        
+        </dl>
     
 
     
         <h3 class="subsection-title">Methods</h3>
 
-        
+        <dl>
+                
+
+<dt>
+    
+        <h4 class="name" id="~execute">
             
+                <span class="type-signature"><span class="icon green">inner</span> </span>execute<span class="signature">(message, args)</span><span class="type-signature"> &rarr; {string}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="apology.js.html">apology.js</a></code>,
+                <code><a href="apology.js.html#line12">line 12</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
 
     
 
     
-    <h4 class="name" id="~execute"><span class="type-signature">(inner) </span>execute<span class="signature">(message, args)</span><span class="type-signature"> &rarr; {string}</span></h4>
-    
 
     
 
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
     
 
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
 <table class="params">
     <thead>
     <tr>
@@ -398,13 +439,7 @@
     </tbody>
 </table>
 
-
-
-
-
-
-<dl class="details">
-
+    </div>
     
 
     
@@ -418,97 +453,29 @@
     
 
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="apology.js.html">apology.js</a>, <a href="apology.js.html#line12">line 12</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
+    <div class="container-returns">
+        <h5>Returns:</h5>
         
-<div class="param-desc">
-    <p>selected apology with correct formatting and recipient</p>
-</div>
+                
 
 
 
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
 <span class="param-type">string</span>
 
 
-    </dd>
-</dl>
-
-    
 
 
 
+- <p>selected apology with correct formatting and recipient</p>
 
 
-        
+
+
             
-
+    </div>
     
 
     
-    <h4 class="name" id="~getApology"><span class="type-signature">(inner) </span>getApology<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
-    
-
-    
-    <p class="summary"><p>selection of random apology from list</p></p>
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <dl class="details">
@@ -538,13 +505,6 @@
     
 
     
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="apology.js.html">apology.js</a>, <a href="apology.js.html#line19">line 19</a>
-    </li></ul></dd>
-    
-
-    
 
     
 
@@ -552,47 +512,119 @@
 </dl>
 
 
+    
 
+</dd>
 
+            
+                
 
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
+<dt>
+    
+        <h4 class="name" id="~getApology">
+            
+                <span class="type-signature"><span class="icon green">inner</span> </span>getApology<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="apology.js.html">apology.js</a></code>,
+                <code><a href="apology.js.html#line19">line 19</a></code>
+            </div>
+            
+        </h4>
 
         
-<div class="param-desc">
-    <p>apology</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
+        <p class="summary"><p>selection of random apology from list</p></p>
         
+    
+</dt>
+<dd>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
 <span class="param-type">Object</span>
 
 
-    </dd>
-</dl>
+
+
+
+- <p>apology</p>
+
+
+
+
+            
+    </div>
+    
 
     
 
 
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
 
 
+    
 
-        
+</dd>
+
+            </dl>
     
 
     
@@ -607,17 +639,24 @@
 
 </div>
 
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-advice.html">advice</a></li><li><a href="module-apology.html">apology</a></li><li><a href="module-butlerbot.html">butlerbot</a></li><li><a href="module-cat.html">cat</a></li><li><a href="module-catfact.html">catfact</a></li><li><a href="module-documentation.html">documentation</a></li><li><a href="module-dog.html">dog</a></li><li><a href="module-help.html">help</a></li><li><a href="module-insult.html">insult</a></li><li><a href="module-introduce.html">introduce</a></li><li><a href="module-joke.html">joke</a></li><li><a href="module-meme.html">meme</a></li><li><a href="module-ping.html">ping</a></li><li><a href="module-prune.html">prune</a></li><li><a href="module-roll.html">roll</a></li></ul>
-</nav>
-
-<br class="clear">
-
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Wed Jan 27 2021 17:34:48 GMT-0500 (Eastern Standard Time)
+    <img class="logo" src="../butlerbot_logo.png" style="width: 60px; height: 20px">
+    <div class="footer-text">Butlerbot's Documentation v1.0.0</div>
 </footer>
+<script>prettyPrint();</script>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/tui-doc.js"></script>
+<script src="scripts/linenumber.js"></script>
 
-<script> prettyPrint(); </script>
-<script src="scripts/linenumber.js"> </script>
+    <script>
+        var id = 'module:apology_sub'.replace(/"/g, '_');
+        var selectedApi = document.getElementById(id); // do not use jquery selector
+        var $selectedApi = $(selectedApi);
+
+        $selectedApi.removeClass('hidden');
+        $selectedApi.parent().find('.glyphicon').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+        showLnbApi();
+    </script>
+
 </body>
 </html>
