@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h1>Butlerbot</h1>
+<h2>A simple discord bot, designed to handle simple tasks.</h2>
+<p><a href="https://top.gg/bot/740165717688582256"><img src="https://top.gg/api/widget/740165717688582256.svg" alt="Discord Bots"></a></p>
+<p><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat" alt="contributions welcome">
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a></p>
+<p><img src="https://github.com/PeteWein/butlerbot/workflows/CodeQL/badge.svg?branch=master" alt="CodeQL">
+<img src="https://img.shields.io/github/last-commit/PeteWein/butlerbot" alt="Last Commit"></p>
+<p><img src="https://github.com/PeteWein/butlerbot/workflows/Node.js%20CI/badge.svg?branch=master" alt="Node.js CI">
+<img src="https://github.com/PeteWein/butlerbot/workflows/Docker%20Image%20CI/badge.svg?branch=master" alt="Docker Image CI"></p>
+<h3>Introduction</h3>
+<p>Are you tired of insulting your fellow discord server members? Are you annoyed at continuously having to apologize to them? Do you want advice that may or may not be relevant to your situation? Say no more -- Butlerbot is here to help serve you in your more banal of tasks! From grabbing cute pictures of cats or dogs to telling a silly joke and breaking the ice, butlerbot is here to serve!</p>
+<h3>How to run locally</h3>
+<p>First, you will need to create a new discord bot application in the <a href="https://discord.com/developers/applications">Discord developer portal</a>, which will be used to connect the discord bot that users interact with to the underlying code. Once created, you will need the <code>Client Secret</code> value (hidden in the UI by default) to inject into the discord bot. Next, you will need to create a <code>.env</code> file* in the project root with <code>BOT_TOKEN=YOUR_SECRET</code> in the file.</p>
+<p>From the project root, run any of the below commands. There is a standard <code>npm start</code> command, which is identical to a standard deployment run; there is also a <code>npm run local-dev</code> option, which will automatically reload the application on any code changes. This is the recommended approach for local development, as it will greatly speed up development by eliminating the need to stop and restart the application during the process.</p>
+<pre class="prettyprint source"><code># (recommended) Start discord bot in local development mode
+npm run local-dev
+
+# the underlying node cli command
+nodemon ./src/butlerbot.js
+
+# Start discord bot using the same method as a standard deployment
+npm start
+# underlying npm command
+node ./src/butlerbot.js
+</code></pre>
+<p>This will start the discord bot from the command line.</p>
+<p>*<em>NOTE: there is a <code>.env.example</code> file to assist with the variable name/format.</em></p>
+<h3>Running from a docker container/image</h3>
+<p>There is a Dockerfile that can be used to build the bot as well. The main thing here is that, by default, it won't have the bot token required to run (which lives in <code>.env</code>). You will need to inject the token into a <code>.env</code> file within the container after it is deployed. However, the container itself should work and exposts the default 80/443 ports.</p>
+<h3>Linting</h3>
+<p>You can also run linting on the source code, which can assist with syntax errors/code style enforcement and is useful in the CI/CD pipeline. This can be from the project root with either fo the below commands:</p>
+<pre class="prettyprint source"><code>npm run lint
+
+eslint ./src/*.js ./src/commands/*.js
+</code></pre>
+<h3>Unit Tests</h3>
+<p>There are a few unit tests built into the bot. These live in the <code>test</code> directory in <code>test.js</code>. Although there is not 100% code coverage, the tests do cover a range of bot functionality aspects and flows. For the commands that do have unit tests, there is 100% code coverage. Currently, jest is used as the testing framework.</p>
+<p>Running the tests are fairly straightforward. From the project root, run either of the below commands:</p>
+<pre class="prettyprint source"><code># easy npm usage
+npm test
+
+# full jest cli option
+jest ./test --detectOpenHandles --forceExit --coverage --runInBand
+</code></pre>
+<p>In addition to performing all of the unit tests, this test suite will also produce a coverage directory that reports the results of the test. These can be found in the <code>coverage/</code> directory at the project root. You can also view a report visualization at <code>file:///&lt;PATH&gt;/&lt;TO&gt;/&lt;REPO&gt;/butlerbot/coverage/lcov-report/index.html</code>.</p>
+<p>Due to the fact that there is no simple unit testing/mock framework for discord bots, this <a href="https://stackoverflow.com/questions/60916450/jest-testing-discord-bot-commands">stackoverflow answer</a> was the basis for the unit testing.</p>
+<h3>Integration Tests</h3>
+<p>Unfortunately I haven't found an &quot;easy&quot; way to do integration testing and confirm everything is working before actually deploying. Right now, I've set up a development and staging discord server, as well as a butlerbot-dev bot (within the <a href="https://discord.com/developers/applications">discord developer portal</a>, similar to when the bot is first created). I updated the <code>.env</code> when deploying locally to use the dev <code>BOT_TOKEN</code>, which allows me to deploy the bot locally and make changes before pushing to github and subsequently the production environment. The development server is focused on making/testing the changes themselves, where the staging is confirming the changes in behavior between the production and development versions of the code.</p>
+<h3>Documentation</h3>
+<p>This discord bot uses JSDoc to auto-generate the documentation. This can be created locally using the following commands:</p>
+<pre class="prettyprint source"><code># (recommended) npm cli option
+npm run doc
+
+# cli option without npm
+jsdoc -d doc --configure jsconf.json ./src/butlerbot.js
+</code></pre>
+<p>NOTE: I'm still working on auto-deploying this documentation to the github pages.</p>
+<h3>External Documentation</h3>
+<p>If you are looking to create your own discord bot, below are the guides I found useful:</p>
+<p>https://discordjs.guide/</p>
+<p>https://medium.com/@mason.spr/hosting-a-discord-js-bot-for-free-using-heroku-564c3da2d23f</p>
+<p>https://alligator.io/js/jsdoc/</p>
+<p>https://github.com/jsdoc/jsdoc</p>
+<p>https://github.com/andstor/jsdoc-action</p>
+<h3>Want butlerbot in your discord?</h3>
+<p><a href="https://discord.com/api/oauth2/authorize?client_id=740165717688582256&amp;permissions=8&amp;scope=bot">Here</a> is the invite link that will give Butlerbot the necessary bot permissions.</p>
+<p>Alternatively, please feel free to visit Butlerbot's <a href="https://petewein.github.io/butlerbot/">homepage</a> or <a href="https://top.gg/bot/740165717688582256">top.gg</a> page.</p></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-advice.html">advice</a></li><li><a href="module-apology.html">apology</a></li><li><a href="module-butlerbot.html">butlerbot</a></li><li><a href="module-cat.html">cat</a></li><li><a href="module-catfact.html">catfact</a></li><li><a href="module-documentation.html">documentation</a></li><li><a href="module-dog.html">dog</a></li><li><a href="module-help.html">help</a></li><li><a href="module-insult.html">insult</a></li><li><a href="module-introduce.html">introduce</a></li><li><a href="module-joke.html">joke</a></li><li><a href="module-meme.html">meme</a></li><li><a href="module-ping.html">ping</a></li><li><a href="module-prune.html">prune</a></li><li><a href="module-roll.html">roll</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Wed Jan 27 2021 17:34:48 GMT-0500 (Eastern Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

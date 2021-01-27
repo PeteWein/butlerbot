@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: introduce.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: introduce.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Introduce a discord member to the channel.
+ * &lt;pre>
+ *    We are going to use a GoT title/alias as our intro title, because finding good APIs with fun titles is fairly rare.
+ *    It will allow either self introduction or someone else, using a terniary operator.
+ *    After it gets the intro and title, it should give some sort of cool comment about them.
+ *    The comment is really a chuck norris joke with their username as the name.
+ *    GoT Title API: https://anapioficeandfire.com/Documentation
+ *    Chuck Norris Fact API: http://www.icndb.com/api/
+ * @module introduce
+ * @param {Object} user - which user to introduce
+ * @return {string} - title and fun fact introduction (as a message to discord text channel)
+ */
+const axios = require('axios');
+module.exports = {
+  name: 'introduce',
+  description: 'Introduce yourself or someone else to the channel!',
+  aliases: ['intro', 'introduction', 'welcome'],
+  usage: '@recipient or empty for self introduction.',
+  cooldown: 1,  
+  /**
+   * @method execute
+   * @param {string} message - command, used to determine which channel to return results
+   * @param {string} args - recipient of introduction info to sent to channel; optional
+   * @return {string} selected introduction infformation with correct formatting and recipient
+   */    
+  execute(message, args) {
+    
+    message.channel.startTyping();
+
+    /**
+     * @const auth
+     * @summary either arg or pick the author if empty, includes the ID mention info
+     */
+    const auth = (!args.length) ? message.author : args[0];
+    
+    /**
+     * @var authName
+     * @summary grab the actual name of the user for the silly comment about them, no tag attached
+     */
+    let authName = (!args.length) ? message.author.username : args[0];
+
+    // if they send it with a mention, get the username from the mention id (for the comment)
+    if (authName.startsWith('&lt;') &amp;&amp; authName.endsWith('>')) {
+      authName = message.mentions.users.first().username;
+    }
+    /**
+     * @var num
+     * @summary randomly select from one of 500 characters to get a title
+     */
+    let num = Math.floor(Math.random() * 500) + 1;
+
+    /**
+     * @const reqOne
+     * @summary object to do an axios request for the title, using the number to randomly pick
+     */
+    const reqOne = axios.get(`https://www.anapioficeandfire.com/api/characters/${num}`);
+    /**
+     * @const reqTwo
+     * @summary object to do an axios request for the fun fact, using the authName to populate who the fact uses
+     */
+    const reqTwo = axios.get(`http://api.icndb.com/jokes/random?firstName=${authName}&amp;lastName=`);
+
+    function getTitleAndFact(reqOne, reqTwo) {
+      // perform all of the api requests
+      axios.all([reqOne, reqTwo]).then(axios.spread((...responses) => {
+          /**@const responseOne */
+          const responseOne = responses[0];
+          /**@const responseTwo */
+          const responseTwo = responses[1];
+          /**
+           * @const titleList
+           * @summary grab the aliases and titles, concat, and remove empty entries
+           */
+          const titleList = responseOne.data.titles.concat(responseOne.data.aliases).filter(v=>v!='');
+          /**
+           * @var title
+           * @summary randomly selected title, if returned object had more than one
+           */          
+          let title = titleList[Math.floor(Math.random() * titleList.length)];
+          
+          //! if we received an empty result, have an option ready to use
+          if ( typeof title === 'undefined') {
+              title = 'Master';
+          }
+          // send the arrival with title
+          message.channel.send(`@here Announcing the arrival of ${title} ${auth}!`);
+          
+          // follow up with the silly comment (clean it and get it ready for transport)
+          let outputJoke = responseTwo.data.value.joke.replace(/\s+/g,' ').trim();
+          outputJoke = outputJoke.replace(/&amp;quot;/g, '"');
+          message.channel.send(outputJoke);
+        }))
+        .then(() => message.channel.stopTyping())
+        .catch(errors => {
+          console.error(errors);
+          return message.channel.send(`I'm unable properly introduce at this time, sorry master ${message.author}`);
+      }); 
+    }
+    getTitleAndFact(reqOne, reqTwo);
+  }
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-advice.html">advice</a></li><li><a href="module-apology.html">apology</a></li><li><a href="module-butlerbot.html">butlerbot</a></li><li><a href="module-cat.html">cat</a></li><li><a href="module-catfact.html">catfact</a></li><li><a href="module-documentation.html">documentation</a></li><li><a href="module-dog.html">dog</a></li><li><a href="module-help.html">help</a></li><li><a href="module-insult.html">insult</a></li><li><a href="module-introduce.html">introduce</a></li><li><a href="module-joke.html">joke</a></li><li><a href="module-meme.html">meme</a></li><li><a href="module-ping.html">ping</a></li><li><a href="module-prune.html">prune</a></li><li><a href="module-roll.html">roll</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Wed Jan 27 2021 17:34:48 GMT-0500 (Eastern Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
