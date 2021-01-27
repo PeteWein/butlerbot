@@ -2,23 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: roll</title>
+    <title>Module: roll | Module: roll</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-jsdoc.css">
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+    <link type="text/css" rel="stylesheet" href="styles/tui-doc.css">
+
+    
 </head>
-
 <body>
+<nav class="lnb" id="lnb">
+    <div class="logo" style="width: 60px; height: 20px">
+        
+            <a href="https://github.com/PeteWein/butlerbot" rel="noopener noreferrer" target="_blank">
+                <img src="../butlerbot_logo.png" width="100%" height="100%">
+            </a>
+        
+    </div>
+    <div class="title">
+        <h1><a href="index.html" class="link">Module: roll</a></h1>
+        
+    </div>
+    <div class="search-container" id="search-container">
+        <input type="text" placeholder="Search">
+        <ul></ul>
+    </div>
+    
+    <div class="lnb-api hidden"><h3>Modules</h3><ul><li><a href="module-advice.html">advice</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:advice_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-advice.html#~adviceApi">adviceApi</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="module-advice.html#~execute">execute</a></li><li><a href="module-advice.html#~getAdvice">getAdvice</a></li></ul></div></li><li><a href="module-apology.html">apology</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:apology_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-apology.html#~apology">apology</a></li><li><a href="module-apology.html#~apologyMessages">apologyMessages</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="module-apology.html#~execute">execute</a></li><li><a href="module-apology.html#~getApology">getApology</a></li></ul></div></li><li><a href="module-butlerbot.html">butlerbot</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:butlerbot_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-butlerbot.html#~addFields">addFields</a></li><li><a href="module-butlerbot.html#~author">author</a></li><li><a href="module-butlerbot.html#~color">color</a></li><li><a href="module-butlerbot.html#~description">description</a></li><li><a href="module-butlerbot.html#~embed">embed</a></li><li><a href="module-butlerbot.html#~footer">footer</a></li><li><a href="module-butlerbot.html#~image">image</a></li><li><a href="module-butlerbot.html#~thumbnail">thumbnail</a></li><li><a href="module-butlerbot.html#~title">title</a></li><li><a href="module-butlerbot.html#~url">url</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="module-butlerbot.html#~embedMessage">embedMessage</a></li><li><a href="module-butlerbot.html#~execute">execute</a></li></ul></div></li><li><a href="module-cat.html">cat</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:cat_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-cat.html#~catApi">catApi</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="module-cat.html#~catImage">catImage</a></li><li><a href="module-cat.html#~execute">execute</a></li></ul></div></li><li><a href="module-catfact.html">catfact</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:catfact_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-catfact.html#~catFactApi">catFactApi</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="module-catfact.html#~catFactApiCall">catFactApiCall</a></li><li><a href="module-catfact.html#~execute">execute</a></li></ul></div></li><li><a href="module-documentation.html">documentation</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:documentation_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="module-documentation.html#~execute">execute</a></li></ul></div></li><li><a href="module-dog.html">dog</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:dog_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-dog.html#~dogApi">dogApi</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="module-dog.html#~dogApiCall">dogApiCall</a></li><li><a href="module-dog.html#~execute">execute</a></li></ul></div></li><li><a href="module-help.html">help</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:help_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-help.html#~commands">commands</a></li><li><a href="module-help.html#~data">data</a></li><li><a href="module-help.html#~name">name</a></li><li><a href="module-help.html#~name">name</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="module-help.html#~execute">execute</a></li></ul></div></li><li><a href="module-insult.html">insult</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:insult_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-insult.html#~insultApi">insultApi</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="module-insult.html#~execute">execute</a></li><li><a href="module-insult.html#~getApology">getApology</a></li></ul></div></li><li><a href="module-introduce.html">introduce</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:introduce_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-introduce.html#~auth">auth</a></li><li><a href="module-introduce.html#~authName">authName</a></li><li><a href="module-introduce.html#~num">num</a></li><li><a href="module-introduce.html#~reqOne">reqOne</a></li><li><a href="module-introduce.html#~reqTwo">reqTwo</a></li><li><a href="module-introduce.html#~responseOne">responseOne</a></li><li><a href="module-introduce.html#~responseTwo">responseTwo</a></li><li><a href="module-introduce.html#~title">title</a></li><li><a href="module-introduce.html#~titleList">titleList</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="module-introduce.html#~execute">execute</a></li></ul></div></li><li><a href="module-joke.html">joke</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:joke_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-joke.html#~jokeApi">jokeApi</a></li><li><a href="module-joke.html#~res">res</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="module-joke.html#~execute">execute</a></li><li><a href="module-joke.html#~jokeApiCall">jokeApiCall</a></li></ul></div></li><li><a href="module-meme.html">meme</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:meme_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-meme.html#~reddit">reddit</a></li><li><a href="module-meme.html#~subreddit">subreddit</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="module-meme.html#~apiImageCrawl">apiImageCrawl</a></li><li><a href="module-meme.html#~execute">execute</a></li></ul></div></li><li><a href="module-ping.html">ping</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:ping_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="module-ping.html#~execute">execute</a></li></ul></div></li><li><a href="module-prune.html">prune</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:prune_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-prune.html#~amount">amount</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="module-prune.html#~execute">execute</a></li><li><a href="module-prune.html#~pruneChannel">pruneChannel</a></li></ul></div></li><li><a href="module-roll.html">roll</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="module:roll_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="module-roll.html#~diceArray">diceArray</a></li><li><a href="module-roll.html#~dieArray">dieArray</a></li><li><a href="module-roll.html#~dieTotal">dieTotal</a></li><li><a href="module-roll.html#~userRoll">userRoll</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="module-roll.html#~execute">execute</a></li></ul></div></li></ul></div>
+</nav>
+<div id="resizer"></div>
 
-<div id="main">
-
-    <h1 class="page-title">Module: roll</h1>
-
+<div class="main" id="main">
     
 
 
@@ -28,6 +48,7 @@
 
 <header>
     
+        <h2>roll</h2>
         
             
         
@@ -35,10 +56,11 @@
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
-            <div class="description"><p>Roll a die or multiple dice.</p>
+            
+                <div class="description"><p>Roll a die or multiple dice.</p>
 <pre>
      This command will roll dice and return the results. A few flows to consider:
      - number of dice and the number of dice faces delimited on a 'd'
@@ -53,27 +75,31 @@ Example Usage and Results:
 <table style="width:30%;">
  <tr><td>Roll Argument(s)</td><td>Result Range</td><td>Example Output</td></tr>
  <tr><td>1d6</td><td>number between 1 and 6</td><td>4</td></tr>
- <tr><td>2d6</td><td>numbe between 2 and 12</td><td>6 = 4 + 2</td></tr>
+ <tr><td>2d6</td><td>number between 2 and 12</td><td>6 = 4 + 2</td></tr>
  <tr><td>1d6 + 1d4</td><td>number between 2 and 10</td><td>4 = 1 + 3</td></tr>
 </table></div>
-        
-
-        
             
 
+            
+                
 
+<dt>
+    
+</dt>
+<dd>
 
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
     
 
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
 <table class="params">
     <thead>
     <tr>
@@ -131,9 +157,45 @@ Example Usage and Results:
     </tbody>
 </table>
 
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
 
 
 
+<span class="param-type">string</span>
+
+
+
+
+
+- <ul>
+<li>dice results (as a message to discord text channel)</li>
+</ul>
+
+
+
+
+            
+    </div>
+    
+
+    
 
 
 <dl class="details">
@@ -163,13 +225,6 @@ Example Usage and Results:
     
 
     
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="roll.js.html">roll.js</a>, <a href="roll.js.html#line1">line 1</a>
-    </li></ul></dd>
-    
-
-    
 
     
 
@@ -177,51 +232,14 @@ Example Usage and Results:
 </dl>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <ul>
-<li>dice results (as a message to discord text channel)</li>
-</ul>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">string</span>
-
-
-    </dd>
-</dl>
-
     
 
+</dd>
 
-
-
-
+            
         
+        </div>
     
-    </div>
 
     
 
@@ -238,29 +256,42 @@ Example Usage and Results:
     
         <h3 class="subsection-title">Members</h3>
 
-        
+        <dl>
             
-<h4 class="name" id="~diceArray"><span class="type-signature">(inner) </span>diceArray<span class="type-signature"> :Array.&lt;integer></span></h4>
+
+<dt>
+<h4 class="name" id="~diceArray">
+    <span class="type-signature"><span class="icon green">inner</span> </span>diceArray<span class="type-signature"> :Array.&lt;integer></span>
+    
+    <div class="container-source members">
+        <code><a href="roll.js.html">roll.js</a></code>,
+        <code><a href="roll.js.html#line48">line 48</a></code>
+    </div>
+    
+</h4>
 
 
 <p class="summary"><p>results of each dice result for additional info in the roll</p></p>
 
+</dt>
+<dd>
+    
 
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
+    <!--
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
 <span class="param-type">Array.&lt;integer></span>
 
 
-        </li>
-    </ul>
+            </li>
+        </ul>
+    
+    -->
 
-
-
+    
 
 
 <dl class="details">
@@ -290,13 +321,6 @@ Example Usage and Results:
     
 
     
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="roll.js.html">roll.js</a>, <a href="roll.js.html#line48">line 48</a>
-    </li></ul></dd>
-    
-
-    
 
     
 
@@ -304,33 +328,47 @@ Example Usage and Results:
 </dl>
 
 
+    
 
-
-
+    
+</dd>
 
         
             
-<h4 class="name" id="~dieArray"><span class="type-signature">(inner) </span>dieArray<span class="type-signature"> :Array.&lt;string></span></h4>
+
+<dt>
+<h4 class="name" id="~dieArray">
+    <span class="type-signature"><span class="icon green">inner</span> </span>dieArray<span class="type-signature"> :Array.&lt;string></span>
+    
+    <div class="container-source members">
+        <code><a href="roll.js.html">roll.js</a></code>,
+        <code><a href="roll.js.html#line43">line 43</a></code>
+    </div>
+    
+</h4>
 
 
 <p class="summary"><p>where we will prep and store the dice roll</p></p>
 
+</dt>
+<dd>
+    
 
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
+    <!--
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
 <span class="param-type">Array.&lt;string></span>
 
 
-        </li>
-    </ul>
+            </li>
+        </ul>
+    
+    -->
 
-
-
+    
 
 
 <dl class="details">
@@ -360,13 +398,6 @@ Example Usage and Results:
     
 
     
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="roll.js.html">roll.js</a>, <a href="roll.js.html#line43">line 43</a>
-    </li></ul></dd>
-    
-
-    
 
     
 
@@ -374,33 +405,47 @@ Example Usage and Results:
 </dl>
 
 
+    
 
-
-
+    
+</dd>
 
         
             
-<h4 class="name" id="~dieTotal"><span class="type-signature">(inner) </span>dieTotal<span class="type-signature"> :integer</span></h4>
+
+<dt>
+<h4 class="name" id="~dieTotal">
+    <span class="type-signature"><span class="icon green">inner</span> </span>dieTotal<span class="type-signature"> :integer</span>
+    
+    <div class="container-source members">
+        <code><a href="roll.js.html">roll.js</a></code>,
+        <code><a href="roll.js.html#line38">line 38</a></code>
+    </div>
+    
+</h4>
 
 
 <p class="summary"><p>total die roll, starting at 0 and incremented up based on die roll</p></p>
 
+</dt>
+<dd>
+    
 
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
+    <!--
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
 <span class="param-type">integer</span>
 
 
-        </li>
-    </ul>
+            </li>
+        </ul>
+    
+    -->
 
-
-
+    
 
 
 <dl class="details">
@@ -430,13 +475,6 @@ Example Usage and Results:
     
 
     
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="roll.js.html">roll.js</a>, <a href="roll.js.html#line38">line 38</a>
-    </li></ul></dd>
-    
-
-    
 
     
 
@@ -444,33 +482,47 @@ Example Usage and Results:
 </dl>
 
 
+    
 
-
-
+    
+</dd>
 
         
             
-<h4 class="name" id="~userRoll"><span class="type-signature">(inner) </span>userRoll<span class="type-signature"> :Array.&lt;string></span></h4>
+
+<dt>
+<h4 class="name" id="~userRoll">
+    <span class="type-signature"><span class="icon green">inner</span> </span>userRoll<span class="type-signature"> :Array.&lt;string></span>
+    
+    <div class="container-source members">
+        <code><a href="roll.js.html">roll.js</a></code>,
+        <code><a href="roll.js.html#line53">line 53</a></code>
+    </div>
+    
+</h4>
 
 
 <p class="summary"><p>the user input for the roll command, empty array if undefined</p></p>
 
+</dt>
+<dd>
+    
 
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
+    <!--
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
 <span class="param-type">Array.&lt;string></span>
 
 
-        </li>
-    </ul>
+            </li>
+        </ul>
+    
+    -->
 
-
-
+    
 
 
 <dl class="details">
@@ -500,13 +552,6 @@ Example Usage and Results:
     
 
     
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="roll.js.html">roll.js</a>, <a href="roll.js.html#line53">line 53</a>
-    </li></ul></dd>
-    
-
-    
 
     
 
@@ -514,40 +559,51 @@ Example Usage and Results:
 </dl>
 
 
+    
 
+    
+</dd>
 
-
-
-        
+        </dl>
     
 
     
         <h3 class="subsection-title">Methods</h3>
 
-        
+        <dl>
+                
+
+<dt>
+    
+        <h4 class="name" id="~execute">
             
+                <span class="type-signature"><span class="icon green">inner</span> </span>execute<span class="signature">(message, args)</span><span class="type-signature"> &rarr; {string}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="roll.js.html">roll.js</a></code>,
+                <code><a href="roll.js.html#line31">line 31</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
 
     
 
     
-    <h4 class="name" id="~execute"><span class="type-signature">(inner) </span>execute<span class="signature">(message, args)</span><span class="type-signature"> &rarr; {string}</span></h4>
-    
 
     
 
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
     
 
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
 <table class="params">
     <thead>
     <tr>
@@ -616,9 +672,43 @@ Example Usage and Results:
     </tbody>
 </table>
 
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
 
 
 
+<span class="param-type">string</span>
+
+
+
+
+
+- <p>total of the die or dice rolled (includes each die roll if multiple dice requested)</p>
+
+
+
+
+            
+    </div>
+    
+
+    
 
 
 <dl class="details">
@@ -648,13 +738,6 @@ Example Usage and Results:
     
 
     
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="roll.js.html">roll.js</a>, <a href="roll.js.html#line31">line 31</a>
-    </li></ul></dd>
-    
-
-    
 
     
 
@@ -662,47 +745,11 @@ Example Usage and Results:
 </dl>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>total of the die or dice rolled (includes each die roll if multiple dice requested)</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">string</span>
-
-
-    </dd>
-</dl>
-
     
 
+</dd>
 
-
-
-
-        
+            </dl>
     
 
     
@@ -717,17 +764,24 @@ Example Usage and Results:
 
 </div>
 
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-advice.html">advice</a></li><li><a href="module-apology.html">apology</a></li><li><a href="module-butlerbot.html">butlerbot</a></li><li><a href="module-cat.html">cat</a></li><li><a href="module-catfact.html">catfact</a></li><li><a href="module-documentation.html">documentation</a></li><li><a href="module-dog.html">dog</a></li><li><a href="module-help.html">help</a></li><li><a href="module-insult.html">insult</a></li><li><a href="module-introduce.html">introduce</a></li><li><a href="module-joke.html">joke</a></li><li><a href="module-meme.html">meme</a></li><li><a href="module-ping.html">ping</a></li><li><a href="module-prune.html">prune</a></li><li><a href="module-roll.html">roll</a></li></ul>
-</nav>
-
-<br class="clear">
-
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Wed Jan 27 2021 17:34:48 GMT-0500 (Eastern Standard Time)
+    <img class="logo" src="../butlerbot_logo.png" style="width: 60px; height: 20px">
+    <div class="footer-text">Butlerbot's Documentation v1.0.0</div>
 </footer>
+<script>prettyPrint();</script>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/tui-doc.js"></script>
+<script src="scripts/linenumber.js"></script>
 
-<script> prettyPrint(); </script>
-<script src="scripts/linenumber.js"> </script>
+    <script>
+        var id = 'module:roll_sub'.replace(/"/g, '_');
+        var selectedApi = document.getElementById(id); // do not use jquery selector
+        var $selectedApi = $(selectedApi);
+
+        $selectedApi.removeClass('hidden');
+        $selectedApi.parent().find('.glyphicon').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+        showLnbApi();
+    </script>
+
 </body>
 </html>

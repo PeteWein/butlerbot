@@ -30,6 +30,7 @@
     "winston": "^3.3.3"
   },
   "devDependencies": {
-    "jest": "^26.2.2"
+    "jest": "^26.2.2",
+    "tui-jsdoc-template": "^1.2.2"
   }
 }

@@ -14,7 +14,7 @@
  * <table style="width:30%;">
  *  <tr><td>Roll Argument(s)</td><td>Result Range</td><td>Example Output</td></tr>
  *  <tr><td>1d6</td><td>number between 1 and 6</td><td>4</td></tr>
- *  <tr><td>2d6</td><td>numbe between 2 and 12</td><td>6 = 4 + 2</td></tr>
+ *  <tr><td>2d6</td><td>number between 2 and 12</td><td>6 = 4 + 2</td></tr>
  *  <tr><td>1d6 + 1d4</td><td>number between 2 and 10</td><td>4 = 1 + 3</td></tr>
  * </table> 
  * @module roll 

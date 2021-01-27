@@ -1,4 +1,7 @@
 {
+    "opts": {
+        "template": "node_modules/tui-jsdoc-template"
+    },    
     "plugins": [
         "plugins/markdown",
         "plugins/summarize"
@@ -16,6 +19,17 @@
     },
     "templates": {
         "cleverLinks": false,
-        "monospaceLinks": false
+        "monospaceLinks": false,
+        "logo": {
+            "url": "../butlerbot_logo.png",
+            "width": "60px",
+            "height": "20px",
+            "link": "https://github.com/PeteWein/butlerbot"
+        },
+        "useCollapsibles": true,
+        "tabNames": {
+            "Module": "Commands"
+        },
+        "footerText": "Butlerbot's Documentation v1.0.0"        
     }
 }
