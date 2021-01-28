@@ -85,7 +85,6 @@ npm run doc
 # cli option without npm
 jsdoc -d doc --configure jsconf.json ./src/butlerbot.js
 ```
-NOTE: I'm still working on auto-deploying this documentation to the github pages.
 
 ### External Documentation
 
