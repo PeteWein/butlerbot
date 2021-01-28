@@ -8,6 +8,7 @@
 
 ![CodeQL](https://github.com/PeteWein/butlerbot/workflows/CodeQL/badge.svg?branch=master)
 ![Last Commit](https://img.shields.io/github/last-commit/PeteWein/butlerbot)
+[![CodeFactor](https://www.codefactor.io/repository/github/petewein/butlerbot/badge)](https://www.codefactor.io/repository/github/petewein/butlerbot)
 
 ![Node.js CI](https://github.com/PeteWein/butlerbot/workflows/Node.js%20CI/badge.svg?branch=master)
 ![Docker Image CI](https://github.com/PeteWein/butlerbot/workflows/Docker%20Image%20CI/badge.svg?branch=master)
