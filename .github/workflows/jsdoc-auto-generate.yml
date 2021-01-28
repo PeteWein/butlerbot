@@ -12,7 +12,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Build
+      - name: Build Auto Generated Documentation
         uses: andstor/jsdoc-action@v1
         with:
           source_dir: ./src
@@ -21,7 +21,7 @@ jobs:
           template: tui-jsdoc-template
           front_page: README.md
 
-      - name: Deploy
+      - name: Deploy Auto Generated Documentation
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
