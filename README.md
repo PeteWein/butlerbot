@@ -86,6 +86,7 @@ npm run doc
 # cli option without npm
 jsdoc -d doc --configure jsconf.json ./src/butlerbot.js
 ```
+NOTE: this documentation will be automatically regenerated and redeployed when the code is merged to master. The above code will allow you to check and confirm any changes to the code/annotations/etc. are working as intended.
 
 ### External Documentation
 
@@ -94,8 +95,6 @@ If you are looking to create your own discord bot, below are the guides I found 
 https://discordjs.guide/
 
 https://medium.com/@mason.spr/hosting-a-discord-js-bot-for-free-using-heroku-564c3da2d23f
-
-https://alligator.io/js/jsdoc/
 
 https://github.com/jsdoc/jsdoc
 
