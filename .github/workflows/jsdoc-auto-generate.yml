@@ -27,4 +27,4 @@ jobs:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           publish_dir: ./docs/documentation
           publish_branch: master  # default: gh-pages
-          destination_dir: ./docs/documentation          
+          destination_dir: ./docs/documentation
