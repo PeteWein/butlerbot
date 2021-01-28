@@ -37,6 +37,7 @@ module.exports = {
 		let addFields = [
 			{name: 'Have questions?', value: 'Type !help', inline: true},
 			{name: 'Want a meme?', value: 'Type !meme', inline: true},
+			{name: 'Looking for documentation?', value: '[Click here](https://petewein.github.io/butlerbot/documentation/index.html)', inline: true},
 		];
 		/** @var {string} image */
 		let image = 'https://i.chzbgr.com/full/8385259776/h29253DB5/kitteh-butler-caters-to-feline-company';
