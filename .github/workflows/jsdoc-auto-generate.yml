@@ -1,0 +1,31 @@
+name: JSDoc Auto Generated Documentation
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build
+        uses: andstor/jsdoc-action@v1
+        with:
+          source_dir: ./src
+          output_dir: ./docs/documentation
+          config_file: jsconf.json
+          template: tui-jsdoc-template
+          front_page: README.md
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: ./out
+
+
+  "doc": "echo \"Auto-generating documentation...\" && del-cli ./docs/documentation && jsdoc -d docs/documentation --configure jsconf.json --readme README.md ./src/butlerbot.js"
