@@ -1,5 +1,5 @@
 {
-  "name": "Butlerbot",
+  "name": "butlerbot",
   "version": "1.0.0",
   "description": "A fun discord bot designed to handle small tasks.",
   "main": "./src/butlerbot.js",
