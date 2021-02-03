@@ -64,7 +64,9 @@
         if (userRoll.length === 1 && userRoll[0].indexOf('+') > -1) {
             userRoll = userRoll[0].split('+');
         }        
-        
+        if (userRoll.length === 1 && userRoll[0].indexOf(',') > -1) {
+            userRoll = userRoll[0].split(',');
+        }        
         // grab the raw input and remove bad array values/split them/etc.
         let i = 0;
         for (i = 0; i < userRoll.length; i++) {
@@ -99,7 +101,7 @@
         } else {
             total = '> ' + dieTotal.toString() + ' = ' + diceArray.join(' + ');
         }
-        if (!total.includes("NaN")) {
+        if ((!total.includes("NaN") && !total.includes("> 0"))) {       // strings parse to 0 above, so this catches it as an error
             message.channel.send(total);
         } else {
             let reply = `You haven't used the roll command correctly, ${message.author}!`;

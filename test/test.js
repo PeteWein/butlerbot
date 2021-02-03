@@ -14,7 +14,7 @@ const axios = require('axios');
  * For disabling console.log info: https://stackoverflow.com/questions/44467657/jest-better-way-to-disable-console-inside-unit-tests
  */
 jest.mock('axios');
-jest.spyOn(global.console, 'log').mockImplementation(() => jest.fn());
+//jest.spyOn(global.console, 'log').mockImplementation(() => jest.fn());
 
 /*
  * Below is all of the necessary code to create a mock Discord environment.
@@ -234,3 +234,48 @@ describe('Ping', () => {
     expect(channel.lastMessage.content).toEqual(expect.stringContaining('ms'));
   })
 });
+
+// roll
+const roll = require('../src/commands/roll').execute;
+describe('Roll', () => {
+  it('Returns 1 on a 1d1', async () => {
+    await roll(new Message('', channel, user), ['1d1']);      // args need to be passed as an array to reflect how discordjs handles them
+    expect(channel.lastMessage.content).toBe('> 1');      // > is the formatting item
+  })
+});
+
+describe('Roll', () => {
+  it('Returns 3 = 1 + 1 + 1 on a 3d1', async () => {
+    await roll(new Message('', channel, user), ['3d1']);  
+    expect(channel.lastMessage.content).toBe('> 3 = 1 + 1 + 1');
+  })
+});
+
+describe('Roll', () => {
+  it('Returns 2 = 1 + 1 on a 1d1 + 1d1', async () => {
+    await roll(new Message('', channel, user), ['1d1 + 1d1']);  
+    expect(channel.lastMessage.content).toBe('> 2 = 1 + 1');
+  })
+});
+
+describe('Roll', () => {
+  it('Returns correct result and parses on +', async () => {
+    await roll(new Message('', channel, user), ['1d1+1d1+1d1']);  
+    expect(channel.lastMessage.content).toBe('> 3 = 1 + 1 + 1');
+  })
+});
+
+describe('Roll', () => {
+  it('Returns correct result and parses on ,', async () => {
+    await roll(new Message('', channel, user), ['1d1,1d1']);  
+    expect(channel.lastMessage.content).toBe('> 2 = 1 + 1');
+  })
+});
+
+describe('Roll', () => {
+  it('Returns usage instructions', async () => {
+    await roll(new Message('', channel, user));  
+    expect(channel.lastMessage.content).toEqual(expect.stringContaining('The correct usage looks like'));  
+  })
+});
+
