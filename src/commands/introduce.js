@@ -91,7 +91,7 @@ module.exports = {
           outputJoke = outputJoke.replace(/&quot;/g, '"');
           message.channel.send(outputJoke);
         }))
-        .then(() => message.channel.stopTyping())
+        .then(message.channel.stopTyping(true))
         .catch(errors => {
           console.error(errors);
           return message.channel.send(`I'm unable properly introduce at this time, sorry master ${message.author}`);

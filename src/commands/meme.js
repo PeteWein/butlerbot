@@ -45,7 +45,7 @@ module.exports = {
                         attachment: url,
                         name: 'meme.png'
                     }]
-                }).then(() => message.channel.stopTyping());
+                }).then(message.channel.stopTyping(true));
             }).catch(err => console.error(err));    
         }
         apiImageCrawl(subreddit);
