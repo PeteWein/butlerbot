@@ -83,13 +83,14 @@ module.exports = {
           if ( typeof title === 'undefined') {
               title = 'Master';
           }
-          // send the arrival with title
-          message.channel.send(`@here Announcing the arrival of ${title} ${auth}!`);
-          
-          // follow up with the silly comment (clean it and get it ready for transport)
+          /**
+           * @var outputJoke
+           * @summary randomly chosen joke
+           */   
           let outputJoke = responseTwo.data.value.joke.replace(/\s+/g,' ').trim();
           outputJoke = outputJoke.replace(/&quot;/g, '"');
-          message.channel.send(outputJoke);
+          // send the arrival with title
+          message.channel.send(`@here Announcing the arrival of ${title} ${auth}!\n`+outputJoke);
         })
         .then(message.channel.stopTyping(true))
         .catch(errors => {
