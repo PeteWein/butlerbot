@@ -19,8 +19,7 @@ const fs = require('fs');
 
 // Toggling for various log levels in the test
 global.console = {
-  //log: jest.fn(),           // console.log are ignored in tests
-  log: console.log,           // console.log are ignored in tests
+  log: jest.fn(),           // console.log are ignored in tests
   error: jest.fn(),         // console.error also ignored, since we intentionally throw certain errors
   // keep native behavior for other logging method
   warn: console.warn,       
