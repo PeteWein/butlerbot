@@ -4,6 +4,7 @@
 const Discord = require('discord.js');
 const axios = require('axios');
 const randomPuppy = require('random-puppy');
+const fs = require('fs');
 
 /*
  * This next steps are critical for testing much of the bot's functionality.
@@ -18,7 +19,8 @@ const randomPuppy = require('random-puppy');
 
 // Toggling for various log levels in the test
 global.console = {
-  log: jest.fn(),           // console.log are ignored in tests
+  //log: jest.fn(),           // console.log are ignored in tests
+  log: console.log,           // console.log are ignored in tests
   error: jest.fn(),         // console.error also ignored, since we intentionally throw certain errors
   // keep native behavior for other logging method
   warn: console.warn,       
@@ -32,7 +34,7 @@ jest.mock('random-puppy');
 
 /*
  * Below is all of the necessary code to create a mock Discord environment.
- * The goal is the create a way to test commands; the main functionality of butlerbot.js is fairly straightforward.
+ * The goal is the create a way to test commands; the main functionality of bot.js is fairly straightforward.
  * Really the main aspects that will adjust/need testing are the commands themselves as they will be the most dynamic
  * aspect of this bot and where the majority of errors will occur.
  * All code was originally sourced from the below link:
@@ -102,7 +104,7 @@ class TextChannel extends Discord.TextChannel {
   /**
    * Below is my implementation of the bulkDelete method
    * !NOTE: A collection in discordjs is an extended map class -- so I treat this as a map
-   * It returns a promise -- on success, pass the expected Collection<Snowflake, Message>>
+   * It returns a promise -- on success, pass the expected Collection<Snowflake, Message>
    * On failure, I pass an error with my mock error message
    * https://discord.js.org/#/docs/main/stable/class/TextChannel?scrollTo=bulkDelete
    */
@@ -164,9 +166,29 @@ const client = new Discord.Client();
 const guild = new Guild(client);
 const channel = new TextChannel(guild);
 
-
-// advice API call to ensure it works
+/**
+ * dynamically read in commands -- we can define the execute as needed
+ * this will ensure all commands are considered in the unit testing, even if no tests are written
+ * ! please note this does not include the main bot.js file
+ * ! it's assumed that all functionality of the main file is correct if all the commands are tested
+ * there will also be a separate import for each execute function
+ */
+const commands = fs.readdirSync('./src/commands').filter(file => file.endsWith('.js'));
+for (const file of commands) {
+  require(`./../src/commands/${file}`);
+}
+// correct names and execute functions
 const advice = require('../src/commands/advice').execute;
+const apology = require('../src/commands/apology').execute;
+const cat = require('../src/commands/cat').execute;
+const catfact = require('../src/commands/catfact').execute;
+const documentation = require('../src/commands/documentation').execute;
+const meme = require('../src/commands/meme').execute;
+const ping = require('../src/commands/ping').execute;
+const prune = require('../src/commands/prune').execute;
+const roll = require('../src/commands/roll').execute;
+
+//*Advice**************************************************** */
 describe('Advice', () => {
   it('returns advice from mock API call', async () => {
     axios.get.mockResolvedValue({
@@ -180,8 +202,6 @@ describe('Advice', () => {
     expect(channel.lastMessage.content).toBe('Mock advice response.');
   });
 });
-
-// fail condition in advice api call
 describe('Advice', () => {
   it('returns nothing on failure', async () => {
     axios.get.mockRejectedValue(new Error('Mock Error'));    
@@ -189,17 +209,14 @@ describe('Advice', () => {
   });
 });
 
-// check apology command
-const apology = require('../src/commands/apology').execute;
+//*Apology**************************************************** */
 describe('Apology', () => {
   it('should return a message on behalf of sender', async () => {
   await apology(new Message('!apology @Recipient', channel, user));
   expect(channel.lastMessage.content).toEqual(expect.stringContaining('on behalf of <@0>'));  // sender is <@count>
   });
 });
-
-// cat API call to ensure it works
-const cat = require('../src/commands/cat').execute;
+//*Cat**************************************************** */
 describe('Cat', () => {
   it('returns cat from mock API call', async () => {
     axios.get.mockResolvedValue({
@@ -212,8 +229,6 @@ describe('Cat', () => {
     expect(channel.lastMessage.content).toBe('https://sample_url.com');
   });
 });
-
-// fail condition in cat api call
 describe('Cat', () => {
   it('returns nothing on failure', async () => {
     axios.get.mockRejectedValue(new Error('Mock Error'));    
@@ -221,8 +236,7 @@ describe('Cat', () => {
   });
 });
 
-// catfact API call to ensure it works
-const catfact = require('../src/commands/catfact').execute;
+//*Catfact**************************************************** */
 describe('Catfact', () => {
   it('returns cat fact from mock API call', async () => {
     axios.get.mockResolvedValue({
@@ -234,8 +248,6 @@ describe('Catfact', () => {
     expect(channel.lastMessage.content).toBe('Sample cat fact');
   });
 });
-
-// fail condition in cat api call
 describe('Catfact', () => {
   it('returns nothing on failure', async () => {
     axios.get.mockRejectedValue(new Error('Mock Error'));    
@@ -243,8 +255,7 @@ describe('Catfact', () => {
   });
 });
 
-// documentation
-const documentation = require('../src/commands/documentation').execute;
+//*Documentation**************************************************** */
 describe('Documentation', () => {
   it('sends message with link to github pages', async () => {
     await documentation(new Message('', channel, user));
@@ -252,7 +263,7 @@ describe('Documentation', () => {
   })
 });
 
-// dog API call to ensure it works
+//*Dog**************************************************** */
 const dog = require('../src/commands/dog').execute;
 describe('Dog', () => {
   it('returns dog image from mock API call', async () => {
@@ -265,8 +276,6 @@ describe('Dog', () => {
     expect(channel.lastMessage.content).toBe('Sample dog image');
   });
 });
-
-// fail condition in dog api call
 describe('Dog', () => {
   it('returns nothing on failure', async () => {
     axios.get.mockRejectedValue(new Error('Mock Error'));    
@@ -274,8 +283,39 @@ describe('Dog', () => {
   });
 });
 
-// Memes
-const meme = require('../src/commands/meme').execute;
+//*Joke**************************************************** */
+const joke = require('../src/commands/joke').execute;
+describe('Joke', () => {
+  it('returns Joke from mock API call', async () => {
+    axios.get.mockResolvedValue({
+      data: {
+        joke: 'mock joke',
+      }
+    });    
+    await joke(new Message('', channel, user));
+    expect(channel.lastMessage.content).toBe('mock joke');
+  });
+});
+describe('Joke', () => {
+  it('returns Joke setup and delivery from mock API call', async () => {
+    axios.get.mockResolvedValue({
+      data: {
+        setup: 'mock joke setup',
+        delivery: 'mock joke delivery'
+      }
+    });    
+    await joke(new Message('', channel, user));
+    expect(channel.lastMessage.content).toBe('mock joke setup\nmock joke delivery');
+  });
+});
+describe('Joke', () => {
+  it('returns nothing on failure', async () => {
+    axios.get.mockRejectedValue(new Error('Mock Error'));    
+    await expect(joke(new Message('', channel, user))).toBeUndefined();    
+  });
+});
+
+//*Meme**************************************************** */
 describe('Meme', () => {
   it('returns meme mock API call', async () => {
     randomPuppy.mockResolvedValue({
@@ -287,8 +327,6 @@ describe('Meme', () => {
     expect(channel.lastMessage.content.files[0].attachment.data.message).toBe('Meme');
   });
 });
-
-// fail condition in Meme api call
 describe('Meme', () => {
   it('returns nothing on failure', async () => {
     axios.get.mockRejectedValue(new Error('Mock Error'));    
@@ -296,8 +334,7 @@ describe('Meme', () => {
   });
 });
 
-// ping pong
-const ping = require('../src/commands/ping').execute;
+//*Ping**************************************************** */
 describe('Ping', () => {
   it('sends latency with ms', async () => {
     await ping(new Message('', channel, user));
@@ -305,8 +342,7 @@ describe('Ping', () => {
   })
 });
 
-// prune
-const prune = require('../src/commands/prune').execute;
+//*Prune**************************************************** */
 describe('Prune', () => {
   it('Match bulk delete to previous message on success', async () => {
     await prune(new Message('', channel, user), [1]);
@@ -335,9 +371,7 @@ describe('Prune', () => {
   })
 });
 
-
-// roll
-const roll = require('../src/commands/roll').execute;
+//*Roll**************************************************** */
 describe('Roll', () => {
   it('Returns 1 on a 1d1', async () => {
     await roll(new Message('', channel, user), ['1d1']);      // args need to be passed as an array to reflect how discordjs handles them
@@ -379,4 +413,3 @@ describe('Roll', () => {
     expect(channel.lastMessage.content).toEqual(expect.stringContaining('The correct usage looks like'));  
   })
 });
-

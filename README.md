@@ -35,12 +35,12 @@ From the project root, run any of the below commands. There is a standard `npm s
 npm run local-dev
 
 # the underlying node cli command
-nodemon ./src/butlerbot.js
+nodemon ./src/bot.js
 
 # Start discord bot using the same method as a standard deployment
 npm start
 # underlying npm command
-node ./src/butlerbot.js
+node ./src/bot.js
 ```
  This will start the discord bot from the command line.
 
@@ -101,7 +101,7 @@ This discord bot uses JSDoc to auto-generate the documentation. This can be crea
 npm run doc
 
 # cli option without npm
-jsdoc -d doc --configure jsconf.json ./src/butlerbot.js
+jsdoc -d doc --configure jsconf.json ./src/bot.js
 ```
 NOTE: this documentation will be automatically regenerated and redeployed when the code is merged to master. The above code will allow you to check and confirm any changes to the code/annotations/etc. are working as intended.
 
