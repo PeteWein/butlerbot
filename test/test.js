@@ -14,7 +14,7 @@ const axios = require('axios');
  * For disabling console.log info: https://stackoverflow.com/questions/44467657/jest-better-way-to-disable-console-inside-unit-tests
  */
 jest.mock('axios');
-//jest.spyOn(global.console, 'log').mockImplementation(() => jest.fn());
+jest.spyOn(global.console, 'log').mockImplementation(() => jest.fn());
 
 /*
  * Below is all of the necessary code to create a mock Discord environment.
