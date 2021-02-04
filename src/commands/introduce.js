@@ -64,7 +64,6 @@ module.exports = {
     function getTitleAndFact(reqOne, reqTwo) {
       // perform all of the api requests
       Promise.all([reqOne, reqTwo]).then(responses => {
-          console.log(responses);
           /**@const responseOne */
           const responseOne = responses[0];
           /**@const responseTwo */
