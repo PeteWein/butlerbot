@@ -59,6 +59,7 @@
     <section>
         <article class="readme"><h1>Butlerbot</h1>
 <h2>A simple discord bot, designed to handle simple tasks.</h2>
+<p><img src="https://i.pinimg.com/600x315/02/fd/d2/02fdd20289991787f6072d43fff37166.jpg" alt=""></p>
 <p><a href="https://top.gg/bot/740165717688582256"><img src="https://top.gg/api/widget/740165717688582256.svg" alt="Discord Bots"></a></p>
 <p><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat" alt="contributions welcome">
 <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a></p>
@@ -67,8 +68,10 @@
 <a href="https://www.codefactor.io/repository/github/petewein/butlerbot"><img src="https://www.codefactor.io/repository/github/petewein/butlerbot/badge" alt="CodeFactor"></a></p>
 <p><img src="https://github.com/PeteWein/butlerbot/workflows/Node.js%20CI/badge.svg?branch=master" alt="Node.js CI">
 <img src="https://github.com/PeteWein/butlerbot/workflows/Docker%20Image%20CI/badge.svg?branch=master" alt="Docker Image CI"></p>
+<hr>
 <h3>Introduction</h3>
 <p>Are you tired of insulting your fellow discord server members? Are you annoyed at continuously having to apologize to them? Do you want advice that may or may not be relevant to your situation? Say no more -- Butlerbot is here to help serve you in your more banal of tasks! From grabbing cute pictures of cats or dogs to telling a silly joke and breaking the ice, butlerbot is here to serve!</p>
+<hr>
 <h3>How to run locally</h3>
 <p>First, you will need to create a new discord bot application in the <a href="https://discord.com/developers/applications">Discord developer portal</a>, which will be used to connect the discord bot that users interact with to the underlying code. Once created, you will need the <code>Client Secret</code> value (hidden in the UI by default) to inject into the discord bot. Next, you will need to create a <code>.env</code> file* in the project root with <code>BOT_TOKEN=YOUR_SECRET</code> in the file.</p>
 <p>From the project root, run any of the below commands. There is a standard <code>npm start</code> command, which is identical to a standard deployment run; there is also a <code>npm run local-dev</code> option, which will automatically reload the application on any code changes. This is the recommended approach for local development, as it will greatly speed up development by eliminating the need to stop and restart the application during the process.</p>
@@ -85,14 +88,17 @@ node ./src/butlerbot.js
 </code></pre>
 <p>This will start the discord bot from the command line.</p>
 <p>*<em>NOTE: there is a <code>.env.example</code> file to assist with the variable name/format.</em></p>
+<hr>
 <h3>Running from a docker container/image</h3>
 <p>There is a Dockerfile that can be used to build the bot as well. The main thing here is that, by default, it won't have the bot token required to run (which lives in <code>.env</code>). You will need to inject the token into a <code>.env</code> file within the container after it is deployed. However, the container itself should work and exposts the default 80/443 ports.</p>
+<hr>
 <h3>Linting</h3>
 <p>You can also run linting on the source code, which can assist with syntax errors/code style enforcement and is useful in the CI/CD pipeline. This can be from the project root with either fo the below commands:</p>
 <pre class="prettyprint source"><code>npm run lint
 
 eslint ./src/*.js ./src/commands/*.js
 </code></pre>
+<hr>
 <h3>Unit Tests</h3>
 <p>There are a few unit tests built into the bot. These live in the <code>test</code> directory in <code>test.js</code>. Although there is not 100% code coverage, the tests do cover a range of bot functionality aspects and flows. For the commands that do have unit tests, there is 100% code coverage. Currently, jest is used as the testing framework.</p>
 <p>Running the tests are fairly straightforward. From the project root, run either of the below commands:</p>
@@ -104,8 +110,10 @@ jest ./test --detectOpenHandles --forceExit --coverage --runInBand
 </code></pre>
 <p>In addition to performing all of the unit tests, this test suite will also produce a coverage directory that reports the results of the test. These can be found in the <code>coverage/</code> directory at the project root. You can also view a report visualization at <code>file:///&lt;PATH&gt;/&lt;TO&gt;/&lt;REPO&gt;/butlerbot/coverage/lcov-report/index.html</code>.</p>
 <p>Due to the fact that there is no simple unit testing/mock framework for discord bots, this <a href="https://stackoverflow.com/questions/60916450/jest-testing-discord-bot-commands">stackoverflow answer</a> was the basis for the unit testing.</p>
+<hr>
 <h3>Integration Tests</h3>
 <p>Unfortunately I haven't found an &quot;easy&quot; way to do integration testing and confirm everything is working before actually deploying. Right now, I've set up a development and staging discord server, as well as a butlerbot-dev bot (within the <a href="https://discord.com/developers/applications">discord developer portal</a>, similar to when the bot is first created). I updated the <code>.env</code> when deploying locally to use the dev <code>BOT_TOKEN</code>, which allows me to deploy the bot locally and make changes before pushing to github and subsequently the production environment. The development server is focused on making/testing the changes themselves, where the staging is confirming the changes in behavior between the production and development versions of the code.</p>
+<hr>
 <h3>Documentation</h3>
 <p>This discord bot uses JSDoc to auto-generate the documentation. This can be created locally using the following commands:</p>
 <pre class="prettyprint source"><code># (recommended) npm cli option
@@ -115,6 +123,7 @@ npm run doc
 jsdoc -d doc --configure jsconf.json ./src/butlerbot.js
 </code></pre>
 <p>NOTE: this documentation will be automatically regenerated and redeployed when the code is merged to master. The above code will allow you to check and confirm any changes to the code/annotations/etc. are working as intended.</p>
+<hr>
 <h3>External Documentation</h3>
 <p>If you are looking to create your own discord bot, below are the guides I found useful:</p>
 <p>https://discordjs.guide/</p>
@@ -123,7 +132,8 @@ jsdoc -d doc --configure jsconf.json ./src/butlerbot.js
 <p>https://github.com/andstor/jsdoc-action</p>
 <h3>Want butlerbot in your discord?</h3>
 <p><a href="https://discord.com/api/oauth2/authorize?client_id=740165717688582256&amp;permissions=8&amp;scope=bot">Here</a> is the invite link that will give Butlerbot the necessary bot permissions.</p>
-<p>Alternatively, please feel free to visit Butlerbot's <a href="https://petewein.github.io/butlerbot/">homepage</a> or <a href="https://top.gg/bot/740165717688582256">top.gg</a> page.</p></article>
+<p>Alternatively, please feel free to visit Butlerbot's <a href="https://petewein.github.io/butlerbot/">homepage</a> or <a href="https://top.gg/bot/740165717688582256">top.gg</a> page.</p>
+<hr></article>
     </section>
 
 
