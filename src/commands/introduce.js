@@ -60,10 +60,11 @@ module.exports = {
      * @summary object to do an axios request for the fun fact, using the authName to populate who the fact uses
      */
     const reqTwo = axios.get(`http://api.icndb.com/jokes/random?firstName=${authName}&lastName=`);
-
+    
     function getTitleAndFact(reqOne, reqTwo) {
       // perform all of the api requests
-      axios.all([reqOne, reqTwo]).then(axios.spread((...responses) => {
+      Promise.all([reqOne, reqTwo]).then(responses => {
+          console.log(responses);
           /**@const responseOne */
           const responseOne = responses[0];
           /**@const responseTwo */
@@ -90,7 +91,7 @@ module.exports = {
           let outputJoke = responseTwo.data.value.joke.replace(/\s+/g,' ').trim();
           outputJoke = outputJoke.replace(/&quot;/g, '"');
           message.channel.send(outputJoke);
-        }))
+        })
         .then(message.channel.stopTyping(true))
         .catch(errors => {
           console.error(errors);
