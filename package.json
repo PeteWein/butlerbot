@@ -4,7 +4,15 @@
   "description": "A fun discord bot designed to handle small tasks.",
   "main": "./src/butlerbot.js",
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 50,
+        "lines": 50,
+        "statements": 50      
+      }
+    } 
   },
   "scripts": {
     "start": "echo \"Butlerbot beginning his shift..\" && node ./src/butlerbot.js",
