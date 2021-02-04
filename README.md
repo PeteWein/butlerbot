@@ -1,6 +1,8 @@
 # Butlerbot
 ## A simple discord bot, designed to handle simple tasks.
 
+![](https://i.pinimg.com/600x315/02/fd/d2/02fdd20289991787f6072d43fff37166.jpg)
+
 [![Discord Bots](https://top.gg/api/widget/740165717688582256.svg)](https://top.gg/bot/740165717688582256)
 
 ![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
@@ -13,9 +15,14 @@
 ![Node.js CI](https://github.com/PeteWein/butlerbot/workflows/Node.js%20CI/badge.svg?branch=master)
 ![Docker Image CI](https://github.com/PeteWein/butlerbot/workflows/Docker%20Image%20CI/badge.svg?branch=master)
 
+
+---
+
 ### Introduction
 
 Are you tired of insulting your fellow discord server members? Are you annoyed at continuously having to apologize to them? Do you want advice that may or may not be relevant to your situation? Say no more -- Butlerbot is here to help serve you in your more banal of tasks! From grabbing cute pictures of cats or dogs to telling a silly joke and breaking the ice, butlerbot is here to serve!
+
+---
 
 ### How to run locally
 
@@ -39,9 +46,13 @@ node ./src/butlerbot.js
 
 **NOTE: there is a `.env.example` file to assist with the variable name/format.*
 
+---
+
 ### Running from a docker container/image
 
 There is a Dockerfile that can be used to build the bot as well. The main thing here is that, by default, it won't have the bot token required to run (which lives in `.env`). You will need to inject the token into a `.env` file within the container after it is deployed. However, the container itself should work and exposts the default 80/443 ports.
+
+---
 
 ### Linting
 
@@ -52,6 +63,8 @@ npm run lint
 
 eslint ./src/*.js ./src/commands/*.js
 ```
+
+---
 
 ### Unit Tests
 
@@ -71,9 +84,13 @@ In addition to performing all of the unit tests, this test suite will also produ
 
 Due to the fact that there is no simple unit testing/mock framework for discord bots, this [stackoverflow answer](https://stackoverflow.com/questions/60916450/jest-testing-discord-bot-commands) was the basis for the unit testing.
 
+---
+
 ### Integration Tests
 
 Unfortunately I haven't found an "easy" way to do integration testing and confirm everything is working before actually deploying. Right now, I've set up a development and staging discord server, as well as a butlerbot-dev bot (within the [discord developer portal](https://discord.com/developers/applications), similar to when the bot is first created). I updated the `.env` when deploying locally to use the dev `BOT_TOKEN`, which allows me to deploy the bot locally and make changes before pushing to github and subsequently the production environment. The development server is focused on making/testing the changes themselves, where the staging is confirming the changes in behavior between the production and development versions of the code.
+
+---
 
 ### Documentation
 
@@ -87,6 +104,8 @@ npm run doc
 jsdoc -d doc --configure jsconf.json ./src/butlerbot.js
 ```
 NOTE: this documentation will be automatically regenerated and redeployed when the code is merged to master. The above code will allow you to check and confirm any changes to the code/annotations/etc. are working as intended.
+
+---
 
 ### External Documentation
 
@@ -105,3 +124,5 @@ https://github.com/andstor/jsdoc-action
 [Here](https://discord.com/api/oauth2/authorize?client_id=740165717688582256&permissions=8&scope=bot) is the invite link that will give Butlerbot the necessary bot permissions.
 
 Alternatively, please feel free to visit Butlerbot's [homepage](https://petewein.github.io/butlerbot/) or [top.gg](https://top.gg/bot/740165717688582256) page.
+
+---
