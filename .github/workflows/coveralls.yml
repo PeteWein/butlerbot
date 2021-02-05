@@ -20,8 +20,11 @@ jobs:
       run: |
         npm install
 
+    - name: build coverage report 
+      run: npm run test
+
     - name: Coveralls GitHub Action
       uses: coverallsapp/github-action@v1.1.2
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        path-to-lcov: ./docs/coverage
+        path-to-lcov: ./docs/coverage/lcov.info
