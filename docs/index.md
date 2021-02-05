@@ -47,7 +47,7 @@ roll:
 Although this is a simple landing page, detailed documentation can be found via. the [auto-generated docs here](./documentation/index.html). These were created using JSDoc.
 
 ## Code Coverage
-
+.
 All code coverage is automatically run/deployed and can be found via. the [Jest code coverage report here](coverage/lcov-report/index.html)
 
 ## Interest in having Butlerbot join your discord?
