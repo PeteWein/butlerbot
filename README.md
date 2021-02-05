@@ -8,7 +8,7 @@
 ![CodeQL](https://github.com/PeteWein/butlerbot/workflows/CodeQL/badge.svg?branch=master)
 ![Last Commit](https://img.shields.io/github/last-commit/PeteWein/butlerbot)
 
-![Build and publish test coverage](https://github.com/PeteWein/butlerbot/workflows/Build%20and%20publish%20test%20coverage/badge.svg)
+![Test Coverage Report Build](https://github.com/PeteWein/butlerbot/workflows/Test%20Coverage%20Report%20Build/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/PeteWein/butlerbot/badge.svg?branch=cleanup)](https://coveralls.io/github/PeteWein/butlerbot?branch=cleanup)
 [![CodeFactor](https://www.codefactor.io/repository/github/petewein/butlerbot/badge)](https://www.codefactor.io/repository/github/petewein/butlerbot)
 
