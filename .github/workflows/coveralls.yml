@@ -16,7 +16,7 @@ jobs:
       with:
         node-version: 10.x
 
-    - name: npm install, make test-coverage
+    - name: npm install
       run: |
         npm install
 
@@ -24,4 +24,4 @@ jobs:
       uses: coverallsapp/github-action@v1.1.2
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        path-to-lcov: ./docs/coverage/lcov.info
+        path-to-lcov: ./docs/coverage
