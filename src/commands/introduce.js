@@ -41,6 +41,7 @@ module.exports = {
     let authName = (!args.length) ? message.author.username : args[0];
 
     // if they send it with a mention, get the username from the mention id (for the comment)
+    /* istanbul ignore next */
     if (authName.startsWith('<') && authName.endsWith('>')) {
       authName = message.mentions.users.first().username;
     }
@@ -90,7 +91,8 @@ module.exports = {
           let outputJoke = responseTwo.data.value.joke.replace(/\s+/g,' ').trim();
           outputJoke = outputJoke.replace(/&quot;/g, '"');
           // send the arrival with title
-          message.channel.send(`@here Announcing the arrival of ${title} ${auth}!\n`+outputJoke);
+          let messageOut = `@here Announcing the arrival of ${title} ${auth}!\n` + outputJoke;
+          message.channel.send(messageOut);
         })
         .then(message.channel.stopTyping(true))
         .catch(errors => {

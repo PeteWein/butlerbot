@@ -19,7 +19,8 @@ const fs = require('fs');
 
 // Toggling for various log levels in the test
 global.console = {
-  log: jest.fn(),           // console.log are ignored in tests
+  //log: jest.fn(),           // console.log are ignored in tests
+  log: console.log,
   error: jest.fn(),         // console.error also ignored, since we intentionally throw certain errors
   // keep native behavior for other logging method
   warn: console.warn,       
@@ -132,7 +133,7 @@ class TextChannel extends Discord.TextChannel {
     });
   }
   stopTyping() {
-    return undefined;
+    return;
   }
 }
 
@@ -164,6 +165,7 @@ const user = {id: count++, username: 'butlerbot', discriminator: '1234'};
 const client = new Discord.Client();
 const guild = new Guild(client);
 const channel = new TextChannel(guild);
+client.commands = new Discord.Collection();
 
 /**
  * dynamically read in commands -- we can define the execute as needed
@@ -175,17 +177,29 @@ const channel = new TextChannel(guild);
 const commands = fs.readdirSync('./src/commands').filter(file => file.endsWith('.js'));
 for (const file of commands) {
   require(`./../src/commands/${file}`);
+	const command = require(`../src/commands/${file}`);  
+  client.commands.set(command.name, command);
 }
+
 // correct names and execute functions
 const advice = require('../src/commands/advice').execute;
 const apology = require('../src/commands/apology').execute;
 const cat = require('../src/commands/cat').execute;
 const catfact = require('../src/commands/catfact').execute;
 const documentation = require('../src/commands/documentation').execute;
+const dog = require('../src/commands/dog').execute;
+const help = require('../src/commands/help').execute;
+const insult = require('../src/commands/insult').execute;
+const introduce = require('../src/commands/introduce').execute;
+const joke = require('../src/commands/joke').execute;
 const meme = require('../src/commands/meme').execute;
 const ping = require('../src/commands/ping').execute;
 const prune = require('../src/commands/prune').execute;
 const roll = require('../src/commands/roll').execute;
+
+beforeEach(() => {
+  jest.resetModules()
+});
 
 //*Advice**************************************************** */
 describe('Advice', () => {
@@ -200,12 +214,10 @@ describe('Advice', () => {
     await advice(new Message('', channel, user));
     expect(channel.lastMessage.content).toBe('Mock advice response.');
   });
-});
-describe('Advice', () => {
   it('returns nothing on failure', async () => {
     axios.get.mockRejectedValue(new Error('Mock Error'));    
     await expect(advice(new Message('', channel, user))).toBeUndefined();    
-  });
+  });  
 });
 
 //*Apology**************************************************** */
@@ -215,6 +227,7 @@ describe('Apology', () => {
   expect(channel.lastMessage.content).toEqual(expect.stringContaining('on behalf of <@0>'));  // sender is <@count>
   });
 });
+
 //*Cat**************************************************** */
 describe('Cat', () => {
   it('returns cat from mock API call', async () => {
@@ -227,12 +240,10 @@ describe('Cat', () => {
     await cat(new Message('', channel, user));
     expect(channel.lastMessage.content).toBe('https://sample_url.com');
   });
-});
-describe('Cat', () => {
   it('returns nothing on failure', async () => {
     axios.get.mockRejectedValue(new Error('Mock Error'));    
     await expect(cat(new Message('', channel, user))).toBeUndefined();    
-  });
+  });  
 });
 
 //*Catfact**************************************************** */
@@ -246,12 +257,10 @@ describe('Catfact', () => {
     await catfact(new Message('', channel, user));
     expect(channel.lastMessage.content).toBe('Sample cat fact');
   });
-});
-describe('Catfact', () => {
   it('returns nothing on failure', async () => {
     axios.get.mockRejectedValue(new Error('Mock Error'));    
     await expect(catfact(new Message('', channel, user))).toBeUndefined();    
-  });
+  });  
 });
 
 //*Documentation**************************************************** */
@@ -263,7 +272,6 @@ describe('Documentation', () => {
 });
 
 //*Dog**************************************************** */
-const dog = require('../src/commands/dog').execute;
 describe('Dog', () => {
   it('returns dog image from mock API call', async () => {
     axios.get.mockResolvedValue({
@@ -274,16 +282,120 @@ describe('Dog', () => {
     await dog(new Message('', channel, user));
     expect(channel.lastMessage.content).toBe('Sample dog image');
   });
-});
-describe('Dog', () => {
   it('returns nothing on failure', async () => {
     axios.get.mockRejectedValue(new Error('Mock Error'));    
     await expect(dog(new Message('', channel, user))).toBeUndefined();    
+  });  
+});
+
+//*Help**************************************************** */
+describe('Help', () => {
+  it('sends message with info', async () => {
+    await help(new Message('', channel, user), []);
+    expect(channel.lastMessage.content[0]).toEqual(expect.stringContaining('Here\'s a list of all my commands'));
+  });
+  it('sends command specific info', async () => {
+    await help(new Message('', channel, user), ['help']);
+    expect(channel.lastMessage.content[0]).toEqual(expect.stringContaining('**Name:**'));
+    expect(channel.lastMessage.content[4]).toEqual(expect.stringContaining('**Cooldown:**'));
+  });
+  it('includes default timeout', async () => {
+    await help(new Message('', channel, user), ['apology']);
+    expect(channel.lastMessage.content[4]).toBe('**Cooldown:** 3 second(s)');
+  });
+  it('handle error on bad command', async () => {
+    await help(new Message('', channel, user), ['invalid-command']);
+    expect(channel.lastMessage.content.content).toBe('that\'s not a valid command!');
+  });
+});
+
+//*introduce**************************************************** */
+describe('Introduce', () => {
+  it('introduce channel cache prep', async () => {
+    axios.get.mockResolvedValue({
+      data: {
+        titles: ['title'],
+        aliases: [],
+        value: {
+          joke: 'joke'
+        }
+      }
+    });  
+    await introduce(new Message('', channel, user), []);
+  });
+  it('introduces a member to the channel', async () => {
+    axios.get.mockResolvedValue({
+      data: {
+        titles: ['title'],
+        aliases: [],
+        value: {
+          joke: 'joke'
+        }
+      }
+    });  
+    await introduce(new Message('', channel, user), []);
+    expect(channel.lastMessage.content).toBe('@here Announcing the arrival of title <@0>!\njoke');
+  });
+  it('clear cache', async () => {
+    axios.get.mockResolvedValue({
+      data: {
+        titles: [undefined],
+        aliases: [],
+        value: {
+          joke: 'joke'
+        }
+      }
+    });  
+    await introduce(new Message('', channel, user), ['']);
+  });
+  it('choose default title', async () => {
+    axios.get.mockResolvedValue({
+      data: {
+        titles: [undefined],
+        aliases: [],
+        value: {
+          joke: 'joke'
+        }
+      }
+    });  
+    await introduce(new Message('', channel, user), ['']);
+    expect(channel.lastMessage.content).toEqual(expect.stringContaining('Master'));
+  });
+  it('clear cache', async () => {
+    axios.get.mockRejectedValue(new Error('Mock Error')); 
+    await introduce(new Message('', channel, user), ['']);
+    expect(channel.lastMessage.content).toEqual(expect.stringContaining('Master'));
+  });
+  it('gracefully handle error', async () => {
+    axios.get.mockRejectedValue(new Error('Mock Error')); 
+    await introduce(new Message('', channel, user), ['']);
+    expect(channel.lastMessage.content).toBe('I\'m unable properly introduce at this time, sorry master <@0>');
+  });  
+});
+
+//*Insult**************************************************** */
+describe('Insult', () => {
+  it('returns insult from mock API call', async () => {
+    axios.get.mockResolvedValue({
+      data: {
+        insult: 'mock insult',
+      }
+    });    
+    await insult(new Message('', channel, user), ['target']);
+    expect(channel.lastMessage.content).toBe('target, mock insult');
+  });
+  it('returns nothing on failure', async () => {
+    await insult(new Message('', channel, user), []);         // same results as previous message since it failed
+    expect(channel.lastMessage.content).toBe('target, mock insult');    
+  });
+  it('returns error chat if data changes', async () => {
+    axios.get.mockRejectedValue(new Error('Mock Error')); 
+    await insult(new Message('', channel, user), ['target']);
+    expect(channel.lastMessage.content).toBe('I am unable to pity the fool, sorry master <@0>');
   });
 });
 
 //*Joke**************************************************** */
-const joke = require('../src/commands/joke').execute;
 describe('Joke', () => {
   it('returns Joke from mock API call', async () => {
     axios.get.mockResolvedValue({
@@ -294,8 +406,6 @@ describe('Joke', () => {
     await joke(new Message('', channel, user));
     expect(channel.lastMessage.content).toBe('mock joke');
   });
-});
-describe('Joke', () => {
   it('returns Joke setup and delivery from mock API call', async () => {
     axios.get.mockResolvedValue({
       data: {
@@ -306,8 +416,6 @@ describe('Joke', () => {
     await joke(new Message('', channel, user));
     expect(channel.lastMessage.content).toBe('mock joke setup\nmock joke delivery');
   });
-});
-describe('Joke', () => {
   it('returns nothing on failure', async () => {
     axios.get.mockRejectedValue(new Error('Mock Error'));    
     await expect(joke(new Message('', channel, user))).toBeUndefined();    
@@ -325,8 +433,6 @@ describe('Meme', () => {
     await meme(new Message('', channel, user));
     expect(channel.lastMessage.content.files[0].attachment.data.message).toBe('Meme');
   });
-});
-describe('Meme', () => {
   it('returns nothing on failure', async () => {
     axios.get.mockRejectedValue(new Error('Mock Error'));    
     await expect(meme(new Message('', channel, user))).toBeUndefined();    
@@ -346,28 +452,19 @@ describe('Prune', () => {
   it('Match bulk delete to previous message on success', async () => {
     await prune(new Message('', channel, user), [1]);
     expect(channel.lastMessage.deleted).toBe(true);
-  })
-});
-
-describe('Prune', () => {
+  });
   it('Returns error on empty arguments', async () => {
     await prune(new Message('', channel, user), []);
     expect(channel.lastMessage.content.reply.username).toBe('butlerbot');
-  })
-});
-
-describe('Prune', () => {
+  });
   it('Returns error message to channel if value is 0', async () => {
     await prune(new Message('', channel, user), [0]);
     expect(channel.lastMessage.content.content).toBe('you need to input a number between 1 and 99.');
-  })
-});
-
-describe('Prune', () => {
+  });
   it('throws error to console and sends error message to channel', async () => {
     await prune(new Message('', channel, user), [99]);
     expect(channel.lastMessage.content).toBe('there was an error trying to prune messages in this channel!');
-  })
+  });
 });
 
 //*Roll**************************************************** */
@@ -375,40 +472,25 @@ describe('Roll', () => {
   it('Returns 1 on a 1d1', async () => {
     await roll(new Message('', channel, user), ['1d1']);      // args need to be passed as an array to reflect how discordjs handles them
     expect(channel.lastMessage.content).toBe('> 1');      // > is the formatting item
-  })
-});
-
-describe('Roll', () => {
+  });
   it('Returns correct result on multiple of same die', async () => {
     await roll(new Message('', channel, user), ['3d1']);  
     expect(channel.lastMessage.content).toBe('> 3 = 1 + 1 + 1');
-  })
-});
-
-describe('Roll', () => {
+  });
   it('Returns correct result on multiple dice', async () => {
     await roll(new Message('', channel, user), ['1d1', '+', '1d1']);  
     expect(channel.lastMessage.content).toBe('> 2 = 1 + 1');
-  })
-});
-
-describe('Roll', () => {
+  });
   it('Returns correct result when parsing on +', async () => {
     await roll(new Message('', channel, user), ['1d1+1d1+1d1']);  
     expect(channel.lastMessage.content).toBe('> 3 = 1 + 1 + 1');
-  })
-});
-
-describe('Roll', () => {
+  });
   it('Returns correct result when parsing on ,', async () => {
     await roll(new Message('', channel, user), ['1d1,1d1']);  
     expect(channel.lastMessage.content).toBe('> 2 = 1 + 1');
-  })
-});
-
-describe('Roll', () => {
+  });
   it('Returns usage instructions', async () => {
     await roll(new Message('', channel, user));  
     expect(channel.lastMessage.content).toEqual(expect.stringContaining('The correct usage looks like'));  
-  })
+  });
 });

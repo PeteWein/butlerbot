@@ -55,7 +55,6 @@ module.exports = {
         if (command.usage) {
             data.push(`**Usage:** ${prefix}${command.name} ${command.usage}`);
         }
-        /* istanbul ignore else */
         data.push(`**Cooldown:** ${command.cooldown || 3} second(s)`);
         
         message.channel.send(data, { split: true });        

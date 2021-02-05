@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "echo \"Butlerbot beginning his shift..\" && node ./src/bot.js",
-    "test": "echo \"Interviewing Butlerbot and checking job references...\" && jest ./test --detectOpenHandles --forceExit --coverage --runInBand",
+    "test": "echo \"Interviewing Butlerbot and checking job references...\" && jest ./test --detectOpenHandles --forceExit --coverage --runInBand --no-cache",
     "lint": "echo \"Ensuring Butlerbot's suit is up to snuff...\" && eslint ./src/*.js ./src/commands/*.js",
     "local-dev": "echo \"Running Butlerbot in local development mode\" && nodemon ./src/bot.js",
     "doc": "echo \"Auto-generating documentation...\" && del-cli ./docs/documentation && jsdoc -d docs/documentation --configure jsconf.json --readme README.md ./src/bot.js"
