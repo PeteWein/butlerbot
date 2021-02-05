@@ -18,8 +18,6 @@ jobs:
       run: npm install
     - name: Run Jest tests and generate coverage report
       run: npm test
-    - name: Run Build
-      run: npm run build
     - name: Publish test coverage report
       uses: EndBug/add-and-commit@v4
       with:
