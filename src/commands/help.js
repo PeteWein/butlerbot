@@ -30,11 +30,7 @@ module.exports = {
             data.push('Here\'s a list of all my commands:\n');
             data.push('> '.concat(commands.map(command => command.name + ':\n>\t' + command.description).join('\n> ')));
             data.push(`\nYou can send \`${prefix}help [command name]\` to get info on a specific command!`);
-            return message.channel.send(data, { split: true })
-            .catch(error => {
-                console.error(`Could not send help DM to ${message.author.tag}.\n`, error);
-                message.reply('it seems like I can\'t DM you! Do you have DMs disabled?');
-            });
+            return message.channel.send(data, { split: true });
         }
         /** @var {string} name */  
         const name = args[0].toLowerCase();
@@ -47,12 +43,15 @@ module.exports = {
         // * if requesting a specific command, grab only that one and send it
         data.push(`**Name:** ${command.name}`);
         
+        /* istanbul ignore else */
         if (command.aliases) {
             data.push(`**Aliases:** ${command.aliases.join(', ')}`);
         }
+        /* istanbul ignore else */
         if (command.description) {
             data.push(`**Description:** ${command.description}`);
         }
+        /* istanbul ignore else */
         if (command.usage) {
             data.push(`**Usage:** ${prefix}${command.name} ${command.usage}`);
         }

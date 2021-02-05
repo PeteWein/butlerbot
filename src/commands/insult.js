@@ -37,7 +37,7 @@ module.exports = {
             let res = response.data.insult.replace(/&quot;/g, '\\"').replace(/&amp;/g, '\\&\\').replace(/&gt;/g, '\\>\\');
             message.channel.send(args[0].concat(', ', res));
         })
-        .then(() => message.channel.stopTyping())
+        .then(message.channel.stopTyping(true))
         .catch(error => {
           console.log(error);
           return message.channel.send(`I am unable to pity the fool, sorry master ${message.author}`);

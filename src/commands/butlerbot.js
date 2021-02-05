@@ -41,8 +41,10 @@ module.exports = {
 		];
 		/** @var {string} image */
 		let image = 'https://i.chzbgr.com/full/8385259776/h29253DB5/kitteh-butler-caters-to-feline-company';
+		/** @var {integer} servers */
+		let servers = client.guilds !== undefined ? client.guilds.cache.size : 0;
 		/** @var {string} footer */
-		let footer = `Happily performing my duties in ${client.guilds.cache.size} servers.`;
+		let footer = `Happily performing my duties in ${servers} servers.`;
 
 		/** 
 		 * @function embedMessage

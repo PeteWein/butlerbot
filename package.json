@@ -2,16 +2,24 @@
   "name": "butlerbot",
   "version": "1.0.0",
   "description": "A fun discord bot designed to handle small tasks.",
-  "main": "./src/butlerbot.js",
+  "main": "./src/index.js",
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80      
+      }
+    } 
   },
   "scripts": {
-    "start": "echo \"Butlerbot beginning his shift..\" && node ./src/butlerbot.js",
-    "test": "echo \"Interviewing Butlerbot and checking job references...\" && jest ./test --detectOpenHandles --forceExit --coverage --runInBand",
+    "start": "echo \"Butlerbot beginning his shift..\" && node ./src/bot.js",
+    "test": "echo \"Interviewing Butlerbot and checking job references...\" && del-cli ./docs/coverage && jest ./test --detectOpenHandles --forceExit --coverage --runInBand --no-cache --coverageDirectory ./docs/coverage",
     "lint": "echo \"Ensuring Butlerbot's suit is up to snuff...\" && eslint ./src/*.js ./src/commands/*.js",
-    "local-dev": "echo \"Running Butlerbot in local development mode\" && nodemon ./src/butlerbot.js",
-    "doc": "echo \"Auto-generating documentation...\" && del-cli ./docs/documentation && jsdoc -d docs/documentation --configure jsconf.json --readme README.md ./src/butlerbot.js"
+    "local-dev": "echo \"Running Butlerbot in local development mode\" && nodemon ./src/bot.js",
+    "doc": "echo \"Auto-generating documentation...\" && del-cli ./docs/documentation && jsdoc -d docs/documentation --configure jsconf.json --readme README.md ./src/bot.js"
   },
   "author": "PeteWein",
   "license": "LICENSE",

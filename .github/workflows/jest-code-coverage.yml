@@ -1,0 +1,30 @@
+name: Build and publish test coverage
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@master
+    - name: Set up Node.js
+      uses: actions/setup-node@master
+      with:
+        node-version: 12.0.0
+    - name: Install NPM dependencies
+      run: npm install && npm run install-peers
+    - name: Run Jest tests and generate coverage report
+      run: npm test
+    - name: Run Build
+      run: npm run build
+    - name: Publish test coverage report
+      uses: EndBug/add-and-commit@v4
+      with:
+        add: docs
+        force: true
+        message: Add generated docs
+      env:
+        GITHUB_TOKEN: $

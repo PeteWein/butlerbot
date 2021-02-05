@@ -41,6 +41,7 @@ module.exports = {
     let authName = (!args.length) ? message.author.username : args[0];
 
     // if they send it with a mention, get the username from the mention id (for the comment)
+    /* istanbul ignore next */
     if (authName.startsWith('<') && authName.endsWith('>')) {
       authName = message.mentions.users.first().username;
     }
@@ -60,10 +61,10 @@ module.exports = {
      * @summary object to do an axios request for the fun fact, using the authName to populate who the fact uses
      */
     const reqTwo = axios.get(`http://api.icndb.com/jokes/random?firstName=${authName}&lastName=`);
-
+    
     function getTitleAndFact(reqOne, reqTwo) {
       // perform all of the api requests
-      axios.all([reqOne, reqTwo]).then(axios.spread((...responses) => {
+      Promise.all([reqOne, reqTwo]).then(responses => {
           /**@const responseOne */
           const responseOne = responses[0];
           /**@const responseTwo */
@@ -83,15 +84,17 @@ module.exports = {
           if ( typeof title === 'undefined') {
               title = 'Master';
           }
-          // send the arrival with title
-          message.channel.send(`@here Announcing the arrival of ${title} ${auth}!`);
-          
-          // follow up with the silly comment (clean it and get it ready for transport)
+          /**
+           * @var outputJoke
+           * @summary randomly chosen joke
+           */   
           let outputJoke = responseTwo.data.value.joke.replace(/\s+/g,' ').trim();
           outputJoke = outputJoke.replace(/&quot;/g, '"');
-          message.channel.send(outputJoke);
-        }))
-        .then(() => message.channel.stopTyping())
+          // send the arrival with title
+          let messageOut = `@here Announcing the arrival of ${title} ${auth}!\n` + outputJoke;
+          message.channel.send(messageOut);
+        })
+        .then(message.channel.stopTyping(true))
         .catch(errors => {
           console.error(errors);
           return message.channel.send(`I'm unable properly introduce at this time, sorry master ${message.author}`);
