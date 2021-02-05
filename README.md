@@ -5,16 +5,18 @@
 
 [![Discord Bots](https://top.gg/api/widget/740165717688582256.svg)](https://top.gg/bot/740165717688582256)
 
-![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 ![CodeQL](https://github.com/PeteWein/butlerbot/workflows/CodeQL/badge.svg?branch=master)
 ![Last Commit](https://img.shields.io/github/last-commit/PeteWein/butlerbot)
+
+![Build and publish test coverage](https://github.com/PeteWein/butlerbot/workflows/Build%20and%20publish%20test%20coverage/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/github/PeteWein/butlerbot/badge.svg?branch=cleanup)](https://coveralls.io/github/PeteWein/butlerbot?branch=cleanup)
 [![CodeFactor](https://www.codefactor.io/repository/github/petewein/butlerbot/badge)](https://www.codefactor.io/repository/github/petewein/butlerbot)
 
 ![Node.js CI](https://github.com/PeteWein/butlerbot/workflows/Node.js%20CI/badge.svg?branch=master)
 ![Docker Image CI](https://github.com/PeteWein/butlerbot/workflows/Docker%20Image%20CI/badge.svg?branch=master)
 
+![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
 
