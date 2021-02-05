@@ -68,7 +68,7 @@ eslint ./src/*.js ./src/commands/*.js
 
 ### Unit Tests
 
-There are a few unit tests built into the bot. These live in the `test` directory in `test.js`. Although there is not 100% code coverage, the tests do cover a range of bot functionality aspects and flows. For the commands that do have unit tests, there is 100% code coverage. Currently, jest is used as the testing framework.
+There are a few unit tests built into the bot. These live in the `test` directory in `commands.test.js`. Although there is not 100% code coverage, the tests do cover a range of bot functionality aspects and flows. For the commands that do have unit tests, there is nearly 100% code coverage. Currently, jest is used as the testing framework.
 
 Running the tests are fairly straightforward. From the project root, run either of the below commands:
 
@@ -77,10 +77,12 @@ Running the tests are fairly straightforward. From the project root, run either 
 npm test
 
 # full jest cli option
-jest ./test --detectOpenHandles --forceExit --coverage --runInBand
+del-cli ./docs/coverage && jest ./test --detectOpenHandles --forceExit --coverage --runInBand --no-cache --coverageDirectory ./docs/coverage
 ```
 
-In addition to performing all of the unit tests, this test suite will also produce a coverage directory that reports the results of the test. These can be found in the `coverage/` directory at the project root. You can also view a report visualization at `file:///<PATH>/<TO>/<REPO>/butlerbot/coverage/lcov-report/index.html`.
+In addition to performing all of the unit tests, this test suite will also produce a coverage directory that reports the results of the test. These can be found in the `coverage/` directory at the project root. You can also view a report visualization at `file:///<PATH>/<TO>/<REPO>/butlerbot/docs/coverage/lcov-report/index.html`.
+
+All code coverage is automatically run/deployed and can be found via. the [Jest code coverage report here](coverage/lcov-report/index.html)
 
 Due to the fact that there is no simple unit testing/mock framework for discord bots, this [stackoverflow answer](https://stackoverflow.com/questions/60916450/jest-testing-discord-bot-commands) was the basis for the unit testing.
 
@@ -94,7 +96,9 @@ Unfortunately I haven't found an "easy" way to do integration testing and confir
 
 ### Documentation
 
-This discord bot uses JSDoc to auto-generate the documentation. This can be created locally using the following commands:
+Although this is a simple landing page, detailed documentation can be found via. the [auto-generated docs here](./docs/documentation/index.html). These were created using JSDoc.
+
+However, if you want to generate the documantation locally, you can use the following commands:
 
 ```
 # (recommended) npm cli option
@@ -118,6 +122,8 @@ https://medium.com/@mason.spr/hosting-a-discord-js-bot-for-free-using-heroku-564
 https://github.com/jsdoc/jsdoc
 
 https://github.com/andstor/jsdoc-action
+
+---
 
 ### Want butlerbot in your discord?
  

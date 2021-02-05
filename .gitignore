@@ -3,5 +3,3 @@ node_modules
 .vscode/*
 .vscode
 .env
-coverage
-coverage/*
