@@ -3,7 +3,7 @@
 
 ![](https://i.pinimg.com/600x315/02/fd/d2/02fdd20289991787f6072d43fff37166.jpg)
 
-[![Discord Bots](https://top.gg/api/widget/status/740165717688582256.svg)](https://top.gg/bot/740165717688582256)
+[![Discord Bots](https://top.gg/api/widget/status/740165717688582256.svg?noavatar=true)](https://top.gg/bot/740165717688582256)
 ![Last Commit](https://img.shields.io/github/last-commit/PeteWein/butlerbot)
 
 ![Node.js CI](https://github.com/PeteWein/butlerbot/workflows/Node.js%20CI/badge.svg?branch=master)
