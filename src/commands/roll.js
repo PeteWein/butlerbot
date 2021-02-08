@@ -68,24 +68,21 @@
             userRoll = userRoll[0].split(',');
         }        
         // grab the raw input and remove bad array values/split them/etc.
-        let i = 0;
-        for (i = 0; i < userRoll.length; i++) {
+        for (let i = 0; i < userRoll.length; i++) {
             let roll = userRoll[i].toLowerCase().split('d');
             if (!roll.includes('+')) {
                 dieArray.push(roll);
             }
         }
         // roll each set of dice and then increment our total based on the results
-        let j = 0;
-        for (j = 0; j < dieArray.length; j++) {
+        for (let j = 0; j < dieArray.length; j++) {
             /**
              * Roll each die independently, i.e. a 2d12 can be (1-12) + (1-12), not 2 * (1-12)
              *! NOTE: I am absolutely not a fan of a nested for loop method, but I want to ensure each die is rolled independently
              * Unless someone is rolling an absolutely insane amount of similar dice AND 
              * multiple types of dice combos, it shouldn't even be noticeable
              */
-            let k = 0;
-            for (k = 0; k < parseInt(dieArray[j][0]); k++) {
+            for (let k = 0; k < parseInt(dieArray[j][0]); k++) {
                 let roll = Math.ceil(Math.random() * parseInt(dieArray[j][1]));
                 diceArray.push(roll);
                 dieTotal += roll;
