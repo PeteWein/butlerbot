@@ -1,6 +1,6 @@
 ## Butlerbot || Robotic Servant
 
-![Butlerbot is happy to serve](https://www.colonialdomestics.com/wp-content/uploads/2020/02/butler-hiring.jpg)
+![Butlerbot is happy to serve](https://i.pinimg.com/600x315/02/fd/d2/02fdd20289991787f6072d43fff37166.jpg)
 
 Are you tired of insulting your fellow discord server members? Are you annoyed at continuously having to apologize to them? Do you want advice that may or may not be relevant to your situation? Say no more -- Butlerbot is here to help serve you in your more banal of tasks! From grabbing cute pictures of cats or dogs to telling a silly joke and breaking the ice, butlerbot is here to serve!
 
@@ -47,7 +47,7 @@ roll:
 Although this is a simple landing page, detailed documentation can be found via. the [auto-generated docs here](./documentation/index.html). These were created using JSDoc.
 
 ## Code Coverage
-.
+
 All code coverage is automatically run/deployed and can be found via. the [Jest code coverage report here](coverage/lcov-report/index.html)
 
 ## Interest in having Butlerbot join your discord?

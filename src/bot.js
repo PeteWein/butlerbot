@@ -99,7 +99,7 @@ client.on('message', async message => {
 
 // generic error handling
 process.on('unhandledRejection', error => {
-	console.error('Unhandled promise rejection:', error);
+	console.error('Unhandled Promise Rejection:', error);
 });
 
 // set game status to help command

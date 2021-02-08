@@ -3,17 +3,16 @@
 
 ![](https://i.pinimg.com/600x315/02/fd/d2/02fdd20289991787f6072d43fff37166.jpg)
 
-[![Discord Bots](https://top.gg/api/widget/740165717688582256.svg)](https://top.gg/bot/740165717688582256)
-
-![CodeQL](https://github.com/PeteWein/butlerbot/workflows/CodeQL/badge.svg?branch=master)
+[![Discord Bots](https://top.gg/api/widget/status/740165717688582256.svg?noavatar=true)](https://top.gg/bot/740165717688582256)
 ![Last Commit](https://img.shields.io/github/last-commit/PeteWein/butlerbot)
+
+![Node.js CI](https://github.com/PeteWein/butlerbot/workflows/Node.js%20CI/badge.svg?branch=master)
+![Docker Image CI](https://github.com/PeteWein/butlerbot/workflows/Docker%20Image%20CI/badge.svg?branch=master)
+![CodeQL](https://github.com/PeteWein/butlerbot/workflows/CodeQL/badge.svg?branch=master)
 
 ![Test Coverage Report Build](https://github.com/PeteWein/butlerbot/workflows/Test%20Coverage%20Report%20Build/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/PeteWein/butlerbot/badge.svg?branch=cleanup)](https://coveralls.io/github/PeteWein/butlerbot?branch=cleanup)
 [![CodeFactor](https://www.codefactor.io/repository/github/petewein/butlerbot/badge)](https://www.codefactor.io/repository/github/petewein/butlerbot)
-
-![Node.js CI](https://github.com/PeteWein/butlerbot/workflows/Node.js%20CI/badge.svg?branch=master)
-![Docker Image CI](https://github.com/PeteWein/butlerbot/workflows/Docker%20Image%20CI/badge.svg?branch=master)
 
 ![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
