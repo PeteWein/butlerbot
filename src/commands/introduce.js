@@ -62,6 +62,14 @@ module.exports = {
      */
     const reqTwo = axios.get(`http://api.icndb.com/jokes/random?firstName=${authName}&lastName=`);
     
+    /** 
+     * @function getTitleAndFact
+     * @async
+     * @param {string} reqOne
+     * @param {string} reqTwo
+     * @return {Object} response
+     * @summary perform api calls for title and fun fact
+     */          
     function getTitleAndFact(reqOne, reqTwo) {
       // perform all of the api requests
       Promise.all([reqOne, reqTwo]).then(responses => {
