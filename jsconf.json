@@ -30,6 +30,7 @@
         "tabNames": {
             "Module": "Commands"
         },
-        "footerText": "Butlerbot's Documentation v1.0.0"        
+        "name": "Butlerbot Command Documentation",
+        "footerText": "Butlerbot's Documentation v1.0.0"
     }
 }
