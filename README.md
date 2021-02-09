@@ -11,7 +11,7 @@
 ![CodeQL](https://github.com/PeteWein/butlerbot/workflows/CodeQL/badge.svg?branch=master)
 
 ![Test Coverage Report Build](https://github.com/PeteWein/butlerbot/workflows/Test%20Coverage%20Report%20Build/badge.svg)
-[![Coverage Status](https://coveralls.io/repos/github/PeteWein/butlerbot/badge.svg?branch=cleanup)](https://coveralls.io/github/PeteWein/butlerbot?branch=cleanup)
+[![Coverage Status](https://coveralls.io/repos/github/PeteWein/butlerbot/badge.svg?branch=master)](https://coveralls.io/github/PeteWein/butlerbot?branch=master)
 [![CodeFactor](https://www.codefactor.io/repository/github/petewein/butlerbot/badge)](https://www.codefactor.io/repository/github/petewein/butlerbot)
 
 ![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
