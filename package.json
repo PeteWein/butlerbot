@@ -2,7 +2,7 @@
   "name": "butlerbot",
   "version": "1.0.0",
   "description": "A fun discord bot designed to handle small tasks.",
-  "main": "./src/index.js",
+  "main": "./src/bot.js",
   "jest": {
     "testEnvironment": "node",
     "coverageThreshold": {
@@ -14,6 +14,11 @@
       }
     }
   },
+  "directories": {
+    "doc": "docs",
+    "test": "test",
+    "src": "src"
+  },
   "scripts": {
     "start": "echo \"Butlerbot beginning his shift..\" && node ./src/bot.js",
     "test": "echo \"Interviewing Butlerbot and checking job references...\" && del-cli ./docs/coverage && jest ./test --detectOpenHandles --forceExit --coverage --runInBand --no-cache --coverageDirectory ./docs/coverage",
@@ -23,6 +28,10 @@
   },
   "author": "PeteWein",
   "license": "LICENSE",
+  "bugs": {
+    "url": "https://github.com/PeteWein/butlerbot/issues"
+  },
+  "homepage": "https://github.com/PeteWein/butlerbot#readme",  
   "dependencies": {
     "axios": "^0.21.1",
     "del": "^6.0.0",
