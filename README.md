@@ -124,6 +124,8 @@ https://github.com/jsdoc/jsdoc
 
 https://github.com/andstor/jsdoc-action
 
+https://gabrieltanner.org/blog/dicord-music-bot
+
 ---
 
 ### Want butlerbot in your discord?
