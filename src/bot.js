@@ -8,12 +8,12 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const winston = require('winston');
+const Client = require('../client/Client');
 const { prefix, logLevel } = require('../config.json');
 require('dotenv').config();
 
 // create a new Discord objects
-const client = new Discord.Client();
-client.commands = new Discord.Collection();
+const client = new Client();
 const cooldowns = new Discord.Collection();
 
 // read our commands and set them up
