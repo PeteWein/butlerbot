@@ -31,21 +31,25 @@
   "bugs": {
     "url": "https://github.com/PeteWein/butlerbot/issues"
   },
-  "homepage": "https://github.com/PeteWein/butlerbot#readme",  
+  "homepage": "https://github.com/PeteWein/butlerbot#readme",
   "dependencies": {
+    "@discordjs/opus": "^0.5.0",
     "axios": "^0.21.1",
     "del": "^6.0.0",
     "del-cli": "^3.0.1",
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
     "eslint": "^7.6.0",
+    "ffmpeg": "0.0.4",
+    "fluent-ffmpeg": "^2.1.2",
     "fs": "0.0.1-security",
     "jsdoc": "^3.6.6",
     "node-notifier": "^8.0.1",
     "nodemon": "^2.0.4",
     "random-puppy": "^1.1.0",
     "winston": "^3.3.3",
-    "y18n": "^4.0.1"
+    "y18n": "^4.0.1",
+    "ytdl-core": "^4.8.0"
   },
   "devDependencies": {
     "coveralls": "^3.1.0",
