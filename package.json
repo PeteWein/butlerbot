@@ -31,9 +31,10 @@
     "dotenv": "^8.2.0",
     "eslint": "^7.6.0",
     "fs": "0.0.1-security",
-    "jsdoc": "^3.6.6",
+    "jsdoc": "^3.6.7",
     "node-notifier": "^8.0.1",
     "nodemon": "^2.0.4",
+    "query-string": "^7.0.0",
     "random-puppy": "^1.1.0",
     "winston": "^3.3.3",
     "y18n": "^4.0.1"
