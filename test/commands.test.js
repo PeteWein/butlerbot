@@ -1,6 +1,10 @@
 /* eslint-disable semi */
 /* eslint-disable no-undef */
 
+// any mocked functions
+jest.mock('axios');
+jest.mock('random-puppy');
+
 const Discord = require('discord.js');
 const axios = require('axios');
 const randomPuppy = require('random-puppy');
@@ -19,7 +23,8 @@ const fs = require('fs');
 
 // Toggling for various log levels in the test
 global.console = {
-  log: jest.fn(),           // console.log are ignored in tests
+  //log: jest.fn(),           // console.log are ignored in tests
+  log: console.log,
   error: jest.fn(),         // console.error also ignored, since we intentionally throw certain errors
   // keep native behavior for other logging method
   warn: console.warn,       
@@ -27,9 +32,7 @@ global.console = {
   debug: console.debug,
 };
 
-// any mocked functions
-jest.mock('axios');
-jest.mock('random-puppy');
+
 
 /*
  * Below is all of the necessary code to create a mock Discord environment.
@@ -125,6 +128,18 @@ class TextChannel extends Discord.TextChannel {
       }
     });
   }
+  fetch() {        
+    return new Promise(function(resolve, reject) {
+      if(channel.lastMessage.content) {
+        let message = channel.lastMessage;
+        console.log('inside the fetch');
+        resolve(message);     
+      } else {
+        const error = 'Mock Error';
+       reject(error);
+      }
+    });
+  }
   // for any modules that have a start or stop typing method call
   startTyping() {
     return new Promise(function(resolve) {
@@ -195,6 +210,7 @@ const meme = require('../src/commands/meme').execute;
 const ping = require('../src/commands/ping').execute;
 const prune = require('../src/commands/prune').execute;
 const roll = require('../src/commands/roll').execute;
+const memeit = require('../src/commands/memeit').execute;
 
 beforeEach(() => {
   jest.resetModules()
@@ -491,5 +507,45 @@ describe('Roll', () => {
   it('Returns usage instructions', async () => {
     await roll(new Message('', channel, user));  
     expect(channel.lastMessage.content).toEqual(expect.stringContaining('The correct usage looks like'));  
+  });
+});
+
+//*Memeit**************************************************** */
+describe('Memeit', () => {
+  it('returns a custom made meme on success', async () => {
+    axios.get.mockResolvedValue({
+      data: {
+        data: {
+          memes: [{
+            "id": "1",
+            "name": "Test Meme",
+            "url": "https://fakememe.jpg",
+            "width": 100,
+            "height": 100,
+            "box_count": 2            
+          }]
+        }
+      }
+    });
+    await memeit(new Message('', channel, user));      
+    expect(channel.lastMessage.content).toEqual(expect.stringContaining('The correct usage looks like'))  // the memeit command should use the previous message
+  });
+  it('returns failure for no boxes on meme', async () => {
+    axios.get.mockResolvedValue({
+      data: {
+        data: {
+          memes: [{
+            "id": "1",
+            "name": "Test Meme",
+            "url": "https://fakememe.jpg",
+            "width": 100,
+            "height": 100,
+            "box_count": 0           
+          }]
+        }
+      }
+    });
+    await memeit(new Message('', channel, user));      
+    expect(channel.lastMessage.content).toEqual(expect.stringContaining('The correct usage looks like'))
   });
 });
