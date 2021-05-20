@@ -97,7 +97,7 @@ Unfortunately I haven't found an "easy" way to do integration testing and confir
 
 ### Documentation
 
-Although this is a simple landing page, detailed documentation can be found via. the [auto-generated docs here](./docs/documentation/index.html). These were created using JSDoc.
+Although this is a simple landing page, detailed documentation can be found via. the [auto-generated docs here](https://petewein.github.io/butlerbot/documentation/index.html). These were created using JSDoc.
 
 However, if you want to generate the documantation locally, you can use the following commands:
 
