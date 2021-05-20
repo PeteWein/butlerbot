@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Module: advice | Butlerbot Command Documentation</title>
+    <title>Module: memeit | Butlerbot Command Documentation</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -48,7 +48,7 @@
 
 <header>
     
-        <h2>advice</h2>
+        <h2>memeit</h2>
         
             
         
@@ -60,7 +60,7 @@
         <div class="container-overview">
         
             
-                <div class="description"><p>Ask butlerbot for sagely advice.</p></div>
+                <div class="description"><p>Have butlerbot get a meme and apply the previous text to it</p></div>
             
 
             
@@ -99,14 +99,14 @@
 
 
 
-<span class="param-type">string</span>
+<span class="param-type">Object</span>
 
 
 
 
 
 - <ul>
-<li>advice (as a message to discord text channel)</li>
+<li>image (as a message to discord text channel)</li>
 </ul>
 
 
@@ -181,18 +181,249 @@
             
 
 <dt>
-<h4 class="name" id="~adviceApi">
-    <span class="type-signature"><span class="icon green">inner</span> </span>adviceApi<span class="type-signature"> :string</span>
+<h4 class="name" id="~body">
+    <span class="type-signature"><span class="icon green">inner</span> </span>body<span class="type-signature"> :string</span>
     
     <div class="container-source members">
-        <code><a href="advice.js.html">advice.js</a></code>,
-        <code><a href="advice.js.html#line17">line 17</a></code>
+        <code><a href="memeit.js.html">memeit.js</a></code>,
+        <code><a href="memeit.js.html#line45">line 45</a></code>
     </div>
     
 </h4>
 
 
-<p class="summary"><p>apology api url</p></p>
+<p class="summary"><p>Body of request for meme</p></p>
+
+</dt>
+<dd>
+    
+
+    <!--
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+            </li>
+        </ul>
+    
+    -->
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+</dd>
+
+        
+            
+
+<dt>
+<h4 class="name" id="~captionApi">
+    <span class="type-signature"><span class="icon green">inner</span>, <span class="icon green">constant</span> </span>captionApi<span class="type-signature"> :string</span>
+    
+    <div class="container-source members">
+        <code><a href="memeit.js.html">memeit.js</a></code>,
+        <code><a href="memeit.js.html#line60">line 60</a></code>
+    </div>
+    
+</h4>
+
+
+<p class="summary"><p>caption image endpoint used to generate custom meme</p></p>
+
+</dt>
+<dd>
+    
+
+    <!--
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+            </li>
+        </ul>
+    
+    -->
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+</dd>
+
+        
+            
+
+<dt>
+<h4 class="name" id="~memeApi">
+    <span class="type-signature"><span class="icon green">inner</span> </span>memeApi<span class="type-signature"> :string</span>
+    
+    <div class="container-source members">
+        <code><a href="memeit.js.html">memeit.js</a></code>,
+        <code><a href="memeit.js.html#line18">line 18</a></code>
+    </div>
+    
+</h4>
+
+
+<p class="summary"><p>Get a random meme from imglfip API</p></p>
+
+</dt>
+<dd>
+    
+
+    <!--
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+            </li>
+        </ul>
+    
+    -->
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+</dd>
+
+        
+            
+
+<dt>
+<h4 class="name" id="~memeList">
+    <span class="type-signature"><span class="icon green">inner</span> </span>memeList<span class="type-signature"> :string</span>
+    
+    <div class="container-source members">
+        <code><a href="memeit.js.html">memeit.js</a></code>,
+        <code><a href="memeit.js.html#line26">line 26</a></code>
+    </div>
+    
+</h4>
+
+
+<p class="summary"><p>list of JSON objects including meme and ID</p></p>
 
 </dt>
 <dd>
@@ -271,8 +502,8 @@
                 
             
             <div class="container-source members">
-                <code><a href="advice.js.html">advice.js</a></code>,
-                <code><a href="advice.js.html#line11">line 11</a></code>
+                <code><a href="memeit.js.html">memeit.js</a></code>,
+                <code><a href="memeit.js.html#line12">line 12</a></code>
             </div>
             
         </h4>
@@ -366,165 +597,7 @@
 
 
 
-- <p>results of advice api call</p>
-
-
-
-
-            
-    </div>
-    
-
-    
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-    
-
-</dd>
-
-            
-                
-
-<dt>
-    
-        <h4 class="name" id="~getAdvice">
-            
-                <span class="type-signature"><span class="icon green">async</span>, <span class="icon green">inner</span> </span>getAdvice<span class="signature">(adviceApi)</span><span class="type-signature"> &rarr; {Object}</span>
-                
-            
-            <div class="container-source members">
-                <code><a href="advice.js.html">advice.js</a></code>,
-                <code><a href="advice.js.html#line22">line 22</a></code>
-            </div>
-            
-        </h4>
-
-        
-        <p class="summary"><p>web location to perform api call against for advice</p></p>
-        
-    
-</dt>
-<dd>
-
-    
-
-    
-
-    
-
-    
-
-    
-    <div class="container-params">
-        <h5>Parameters:</h5>
-        
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>adviceApi</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>apology api url</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <div class="container-returns">
-        <h5>Returns:</h5>
-        
-                
-
-
-
-<span class="param-type">Object</span>
-
-
-
-
-
-- <p>response</p>
+- <p>link to custom meme created</p>
 
 
 
@@ -599,7 +672,7 @@
 <script src="scripts/linenumber.js"></script>
 
     <script>
-        var id = 'module:advice_sub'.replace(/"/g, '_');
+        var id = 'module:memeit_sub'.replace(/"/g, '_');
         var selectedApi = document.getElementById(id); // do not use jquery selector
         var $selectedApi = $(selectedApi);
 
