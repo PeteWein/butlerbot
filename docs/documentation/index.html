@@ -118,7 +118,7 @@ del-cli ./docs/coverage && jest ./test --detectOpenHandles --forceExit --coverag
 <p>Unfortunately I haven't found an &quot;easy&quot; way to do integration testing and confirm everything is working before actually deploying. Right now, I've set up a development and staging discord server, as well as a butlerbot-dev bot (within the <a href="https://discord.com/developers/applications">discord developer portal</a>, similar to when the bot is first created). I updated the <code>.env</code> when deploying locally to use the dev <code>BOT_TOKEN</code>, which allows me to deploy the bot locally and make changes before pushing to github and subsequently the production environment. The development server is focused on making/testing the changes themselves, where the staging is confirming the changes in behavior between the production and development versions of the code.</p>
 <hr>
 <h3>Documentation</h3>
-<p>Although this is a simple landing page, detailed documentation can be found via. the <a href="./docs/documentation/index.html">auto-generated docs here</a>. These were created using JSDoc.</p>
+<p>Although this is a simple landing page, detailed documentation can be found via. the <a href="https://petewein.github.io/butlerbot/documentation/index.html">auto-generated docs here</a>. These were created using JSDoc.</p>
 <p>However, if you want to generate the documantation locally, you can use the following commands:</p>
 <pre class="prettyprint source"><code># (recommended) npm cli option
 npm run doc
