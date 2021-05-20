@@ -8,24 +8,29 @@ const queryString = require('query-string');
 
 module.exports = {
   name: 'memeit',
-  description: 'Overlay previous message onto a meme',
+  description: 'Overlay previous message onto a randomly selected meme',
   /**
    * @method execute
    * @param {string} message - command, used to determine which channel to return results
-   * @return {string} results of meme api call 
+   * @return {string} link to custom meme created
    */  
-  execute(message) {   
+  execute(message) { 
     /** 
      * @var {string} memeApi
-     * @summary Get a random meme
+     * @summary Get a random meme from imglfip API
      */
-    let memeApi = 'https://api.imgflip.com/get_memes';     
-    // axios promise as var
+    const memeApi = 'https://api.imgflip.com/get_memes';     
+    // grab the full list of memes and randomly select one from the list
     let memePromise = axios.get(memeApi)
     .then(response => {
+      /** 
+       * @var {string} memeList
+       * @summary list of JSON objects including meme and ID
+       */      
       var memeList = response.data.data.memes.filter(function (meme) {
         return meme.box_count <= 2;
       });
+      // pick a random meme from the list and return the id, needed for the meme generation
       const rand = Math.floor(Math.random() * memeList.length);
       response = memeList[rand];
       return response.id;
@@ -34,8 +39,13 @@ module.exports = {
       console.log(error);
       return message.channel.send(`I'm unable to meme-ify the message, sorry master ${message.author}`);
     });
+    // form the request header to generate the meme
     memePromise.then(memeId => {
       message.channel.messages.fetch({ limit: 2 }).then(messages => {
+        /** 
+         * @var {string} body
+         * @summary Body of request for meme
+         */        
         let body = queryString.stringify({
           'username': process.env.IMGFLIP_USERNAME,
           'password': process.env.IMGFLIP_PASSWORD,
@@ -45,13 +55,16 @@ module.exports = {
         });
         return body;
       })
+      // sent fully formed request to api and return the link to the image
       .then((captionBody) => {
-        let captionApi = 'https://api.imgflip.com/caption_image';     
-        // axios promise as var
+        /** 
+         * @const {string} captionApi
+         * @summary caption image endpoint used to generate custom meme
+         */
+        const captionApi = 'https://api.imgflip.com/caption_image';     
+        // post request with our custom text and random image, then send to channel
         axios.post(captionApi + '?' + captionBody)
         .then(response => {
-          console.log(response.data);
-
           message.channel.send(response.data.data.url);
         })        
         .catch(error => {
