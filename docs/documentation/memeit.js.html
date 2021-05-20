@@ -1,8 +1,10 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Module: advice | Butlerbot Command Documentation</title>
+    <title>Source: memeit.js | Butlerbot Command Documentation</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -43,546 +45,89 @@
 
 
 
-
-<section>
-
-<header>
-    
-        <h2>advice</h2>
-        
-            
-        
-    
-</header>
-
-<article>
-    
-        <div class="container-overview">
-        
-            
-                <div class="description"><p>Ask butlerbot for sagely advice.</p></div>
-            
-
-            
-                
-
-<dt>
-    
-</dt>
-<dd>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <div class="container-returns">
-        <h5>Returns:</h5>
-        
-                
-
-
-
-<span class="param-type">string</span>
-
-
-
-
-
-- <ul>
-<li>advice (as a message to discord text channel)</li>
-</ul>
-
-
-
-
-            
-    </div>
-    
-
-    
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-    
-
-</dd>
-
-            
-        
-        </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        <dl>
-            
-
-<dt>
-<h4 class="name" id="~adviceApi">
-    <span class="type-signature"><span class="icon green">inner</span> </span>adviceApi<span class="type-signature"> :string</span>
-    
-    <div class="container-source members">
-        <code><a href="advice.js.html">advice.js</a></code>,
-        <code><a href="advice.js.html#line17">line 17</a></code>
-    </div>
-    
-</h4>
-
-
-<p class="summary"><p>apology api url</p></p>
-
-</dt>
-<dd>
-    
-
-    <!--
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">string</span>
-
-
-            </li>
-        </ul>
-    
-    -->
-
-    
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-    
-
-    
-</dd>
-
-        </dl>
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        <dl>
-                
-
-<dt>
-    
-        <h4 class="name" id="~execute">
-            
-                <span class="type-signature"><span class="icon green">inner</span> </span>execute<span class="signature">(message)</span><span class="type-signature"> &rarr; {string}</span>
-                
-            
-            <div class="container-source members">
-                <code><a href="advice.js.html">advice.js</a></code>,
-                <code><a href="advice.js.html#line11">line 11</a></code>
-            </div>
-            
-        </h4>
-
-        
-    
-</dt>
-<dd>
-
-    
-
-    
-
-    
-
-    
-
-    
-    <div class="container-params">
-        <h5>Parameters:</h5>
-        
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>message</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>command, used to determine which channel to return results</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <div class="container-returns">
-        <h5>Returns:</h5>
-        
-                
-
-
-
-<span class="param-type">string</span>
-
-
-
-
-
-- <p>results of advice api call</p>
-
-
-
-
-            
-    </div>
-    
-
-    
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-    
-
-</dd>
-
-            
-                
-
-<dt>
-    
-        <h4 class="name" id="~getAdvice">
-            
-                <span class="type-signature"><span class="icon green">async</span>, <span class="icon green">inner</span> </span>getAdvice<span class="signature">(adviceApi)</span><span class="type-signature"> &rarr; {Object}</span>
-                
-            
-            <div class="container-source members">
-                <code><a href="advice.js.html">advice.js</a></code>,
-                <code><a href="advice.js.html#line22">line 22</a></code>
-            </div>
-            
-        </h4>
-
-        
-        <p class="summary"><p>web location to perform api call against for advice</p></p>
-        
-    
-</dt>
-<dd>
-
-    
-
-    
-
-    
-
-    
-
-    
-    <div class="container-params">
-        <h5>Parameters:</h5>
-        
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>adviceApi</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>apology api url</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <div class="container-returns">
-        <h5>Returns:</h5>
-        
-                
-
-
-
-<span class="param-type">Object</span>
-
-
-
-
-
-- <p>response</p>
-
-
-
-
-            
-    </div>
-    
-
-    
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
     
-</dl>
-
-
-    
-
-</dd>
-
-            </dl>
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Have butlerbot get a meme and apply the previous text to it
+ * @module memeit
+ * @return {Object} - image (as a message to discord text channel)
+ */
+const axios = require('axios');
+const queryString = require('query-string');
+
+module.exports = {
+  name: 'memeit',
+  description: 'Overlay previous message onto a randomly selected meme',
+  /**
+   * @method execute
+   * @param {string} message - command, used to determine which channel to return results
+   * @return {string} link to custom meme created
+   */  
+  execute(message) { 
+    /** 
+     * @var {string} memeApi
+     * @summary Get a random meme from imglfip API
+     */
+    const memeApi = 'https://api.imgflip.com/get_memes';     
+    // grab the full list of memes and randomly select one from the list
+    let memePromise = axios.get(memeApi)
+    .then(response => {
+      /** 
+       * @var {string} memeList
+       * @summary list of JSON objects including meme and ID
+       */      
+      var memeList = response.data.data.memes.filter(function (meme) {
+        return meme.box_count &lt;= 2;
+      });
+      // pick a random meme from the list and return the id, needed for the meme generation
+      const rand = Math.floor(Math.random() * memeList.length);
+      response = memeList[rand];
+      return response.id;
+    })        
+    .catch(error => {
+      console.log(error);
+      return message.channel.send(`I'm unable to meme-ify the message, sorry master ${message.author}`);
+    });
+    // form the request header to generate the meme
+    memePromise.then(memeId => {
+      message.channel.messages.fetch({ limit: 2 }).then(messages => {
+        /** 
+         * @var {string} body
+         * @summary Body of request for meme
+         */        
+        let body = queryString.stringify({
+          'username': process.env.IMGFLIP_USERNAME,
+          'password': process.env.IMGFLIP_PASSWORD,
+          'template_id': memeId,
+          'text0': messages.last().content,
+          'text1': ''
+        });
+        return body;
+      })
+      // sent fully formed request to api and return the link to the image
+      .then((captionBody) => {
+        /** 
+         * @const {string} captionApi
+         * @summary caption image endpoint used to generate custom meme
+         */
+        const captionApi = 'https://api.imgflip.com/caption_image';     
+        // post request with our custom text and random image, then send to channel
+        axios.post(captionApi + '?' + captionBody)
+        .then(response => {
+          message.channel.send(response.data.data.url);
+        })        
+        .catch(error => {
+          console.log(error);
+          return message.channel.send(`I'm unable to caption the message, sorry master ${message.author}`);
+        });
+      });  
+    });
+  }
+};
+</code></pre>
+        </article>
+    </section>
 
 
 
@@ -599,7 +144,7 @@
 <script src="scripts/linenumber.js"></script>
 
     <script>
-        var id = 'module:advice_sub'.replace(/"/g, '_');
+        var id = '_sub'.replace(/"/g, '_');
         var selectedApi = document.getElementById(id); // do not use jquery selector
         var $selectedApi = $(selectedApi);
 
