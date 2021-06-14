@@ -1,28 +1,31 @@
 name: Test Coverage Report Build
 
 on:
-  push:
-    branches:
-      - master
+  schedule:
+    # Run the workflow once a week (every sunday at 1am)
+    - cron:  '0 1 * * 0'
+
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@master
-    - name: Set up Node.js
-      uses: actions/setup-node@master
-      with:
-        node-version: 12.x
-    - name: Install NPM dependencies
-      run: npm install
-    - name: Run Jest tests and generate coverage report
-      run: npm test
-    - name: Publish test coverage report
-      uses: EndBug/add-and-commit@v4
-      with:
-        add: docs
-        force: true
-        message: Add generated docs
-      env:
-        GITHUB_TOKEN: $
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@master
+        with:
+          node-version: 12.x
+
+      - name: Install NPM dependencies
+        run: npm install
+
+      - name: Run Jest tests and generate coverage report
+        run: npm test
+
+      - name: Publish test coverage report
+        uses: EndBug/add-and-commit@v4
+        with:
+          add: docs
+          force: true
+          message: Add code coverage report
