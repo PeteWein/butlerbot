@@ -1,9 +1,9 @@
 name: Test Coverage Report Build
 
 on:
-  push:
-    branches:
-      - master
+  schedule:
+    # Run the workflow once a week (every sunday at 1am)
+    - cron:  '0 1 * * 0'
 
 jobs:
   deploy:
