@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1623657550938" clover="3.2.0">
-  <project timestamp="1623657550938" name="All files">
+<coverage generated="1623657588393" clover="3.2.0">
+  <project timestamp="1623657588393" name="All files">
     <metrics statements="189" coveredstatements="167" conditionals="45" coveredconditionals="45" methods="55" coveredmethods="48" elements="289" coveredelements="260" complexity="0" loc="189" ncloc="189" packages="1" files="16" classes="16"/>
     <file name="advice.js" path="/home/runner/work/butlerbot/butlerbot/src/commands/advice.js">
       <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
