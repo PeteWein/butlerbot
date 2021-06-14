@@ -15,13 +15,13 @@ jobs:
       uses: actions/setup-node@master
       with:
         node-version: 12.x
-    
+
     - name: Install NPM dependencies
       run: npm install
-    
+
     - name: Run Jest tests and generate coverage report
       run: npm test
-    
+
     - name: Publish test coverage report
       uses: EndBug/add-and-commit@v4
       with:
