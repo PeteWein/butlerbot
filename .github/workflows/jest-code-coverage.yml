@@ -1,9 +1,9 @@
 name: Test Coverage Report Build
 
 on:
-  push:
-    branches:
-      - master
+  schedule:
+    # Run the workflow once a week (every sunday at 1am)
+    - cron:  '0 1 * * 0'
 
 jobs:
   deploy:
@@ -29,11 +29,3 @@ jobs:
           add: docs
           force: true
           message: Add code coverage report
-
-      - name: Deploy Code Coverage Report
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          publish_dir: ./docs/coverage
-          publish_branch: master  # default: gh-pages
-          destination_dir: ./docs/coverage
