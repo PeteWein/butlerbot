@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -11,23 +12,23 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@master
-      with:
-        node-version: 12.x
+      - name: Set up Node.js
+        uses: actions/setup-node@master
+        with:
+          node-version: 12.x
 
-    - name: Install NPM dependencies
-      run: npm install
+      - name: Install NPM dependencies
+        run: npm install
 
-    - name: Run Jest tests and generate coverage report
-      run: npm test
+      - name: Run Jest tests and generate coverage report
+        run: npm test
 
-    - name: Publish test coverage report
-      uses: EndBug/add-and-commit@v4
-      with:
-        add: docs
-        force: true
-        message: Add generated docs
+      - name: Publish test coverage report
+        uses: EndBug/add-and-commit@v4
+        with:
+          add: docs
+          force: true
+          message: Add code coverage report
 
       - name: Deploy Code Coverage Report
         uses: peaceiris/actions-gh-pages@v3
