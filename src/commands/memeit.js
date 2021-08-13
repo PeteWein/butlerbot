@@ -36,10 +36,11 @@ module.exports = {
       return response.id;
     })        
     .catch(error => {
-      console.log(error);
+      /* istanbul ignore next */
       return message.channel.send(`I'm to find a suitable meme, sorry master ${message.author}`);
     });
     // determine if message is reply
+    /* istanbul ignore next */
     if (message.reference !== null) {
       memePromise.then(memeId => {
         message.channel.messages.fetch(message.reference.messageID).then(messages => {
@@ -53,7 +54,7 @@ module.exports = {
             'template_id': memeId,
             'text0': messages.content,
             'text1': ''
-            });      
+            }); 
             return body;
           }
         )
@@ -67,7 +68,6 @@ module.exports = {
           // post request with our custom text and random image, then send to channel
           axios.post(captionApi + '?' + captionBody)
           .then(response => {
-            //console.log(response.data.data);
             message.channel.send(response.data.data.url);
           })        
           .catch(error => {
@@ -82,7 +82,7 @@ module.exports = {
           /** 
            * @var {string} body
            * @summary Body of request for meme
-           */        
+           */
           let body = queryString.stringify({
             'username': process.env.IMGFLIP_USERNAME,
             'password': process.env.IMGFLIP_PASSWORD,
