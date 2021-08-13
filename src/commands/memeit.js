@@ -37,6 +37,8 @@ module.exports = {
     })        
     .catch(error => {
       /* istanbul ignore next */
+      console.log(error);
+      /* istanbul ignore next */
       return message.channel.send(`I'm to find a suitable meme, sorry master ${message.author}`);
     });
     // determine if message is reply
