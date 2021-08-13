@@ -92,7 +92,7 @@ client.on('message', async message => {
 			//NOTE: reaction ID is linked to the staging server
 			message.react('742372849179820033');
 		} else {
-			console.error(error);
+			logger.log('error', 'message: ' + message + 'args: ' + args + 'error message: ' + error);
 			message.reply('there was an error trying to execute that command!');
 		}
 	}

@@ -31,8 +31,6 @@ global.console = {
   debug: console.debug,
 };
 
-
-
 /*
  * Below is all of the necessary code to create a mock Discord environment.
  * The goal is the create a way to test commands; the main functionality of bot.js is fairly straightforward.
@@ -79,28 +77,59 @@ class TextChannel extends Discord.TextChannel {
 
   // you can modify this for other things like attachments and embeds if you need
   send(content) {
-    return this.client.actions.MessageCreate.handle({
-      id: count++,
-      type: 0,
-      channel_id: this.id,
-      content,
-      author: {
-        id: 'bot id',
-        username: 'bot username',
-        discriminator: '1234',
-        bot: true
-      },
-      pinned: false,
-      tts: false,
-      nonce: '',
-      embeds: [],
-      attachments: [],
-      timestamp: Date.now(),
-      edited_timestamp: null,
-      mentions: [],
-      mention_roles: [],
-      mention_everyone: false
-    });
+    if (content === "!memeit") {
+      return this.client.actions.MessageCreate.handle({
+        id: count++,
+        type: 0,
+        channel_id: this.id,
+        content,
+        author: {
+          id: 'Butlerbot_ID',
+          username: 'Butlerbot_Username',
+          discriminator: '1234',
+          bot: true
+        },
+        pinned: false,
+        tts: false,
+        nonce: '',
+        embeds: [],
+        attachments: [],
+        timestamp: Date.now(),
+        edited_timestamp: null,
+        mentions: [],
+        mention_roles: [],
+        mention_everyone: false,
+        reference: {
+          channelId: this.id,
+          guildId: this.guildId,
+          messageId: 1
+        }
+      });
+    }
+    else {
+      return this.client.actions.MessageCreate.handle({
+        id: count++,
+        type: 0,
+        channel_id: this.id,
+        content,
+        author: {
+          id: 'Butlerbot_ID',
+          username: 'Butlerbot_Username',
+          discriminator: '1234',
+          bot: true
+        },
+        pinned: false,
+        tts: false,
+        nonce: '',
+        embeds: [],
+        attachments: [],
+        timestamp: Date.now(),
+        edited_timestamp: null,
+        mentions: [],
+        mention_roles: [],
+        mention_everyone: false,
+      });
+    }
   }
   /**
    * Below is my implementation of the bulkDelete method
@@ -124,18 +153,6 @@ class TextChannel extends Discord.TextChannel {
           error: 'Mock Error'
        }
        reject(errorObject);
-      }
-    });
-  }
-  fetch() {        
-    return new Promise(function(resolve, reject) {
-      if(channel.lastMessage.content) {
-        let message = channel.lastMessage;
-        console.log('inside the fetch');
-        resolve(message);     
-      } else {
-        const error = 'Mock Error';
-       reject(error);
       }
     });
   }
@@ -521,13 +538,24 @@ describe('Memeit', () => {
             "url": "https://fakememe.jpg",
             "width": 100,
             "height": 100,
-            "box_count": 2            
+            "box_count": 1            
           }]
         }
       }
     });
-    await memeit(new Message('', channel, user));      
+    axios.post.mockResolvedValue({
+      data: {
+        data: {
+          url: "https://fakeMemeResponse.jpg"
+        }
+      }
+    });
+    await memeit(new Message('', channel, user), []);      
     expect(channel.lastMessage.content).toEqual(expect.stringContaining('The correct usage looks like'))  // the memeit command should use the previous message
+  });
+  it('returns a custom made meme on success (reply)', async () => {
+    await memeit(new Message('', channel, user));      
+    expect(channel.lastMessage.content).toEqual(expect.stringContaining('The correct usage looks like')) 
   });
   it('returns failure for no boxes on meme', async () => {
     axios.get.mockResolvedValue({
