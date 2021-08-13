@@ -37,48 +37,80 @@ module.exports = {
     })        
     .catch(error => {
       console.log(error);
-      return message.channel.send(`I'm unable to meme-ify the message, sorry master ${message.author}`);
+      return message.channel.send(`I'm to find a suitable meme, sorry master ${message.author}`);
     });
     // determine if message is reply
-    const reply = message;
-    console.log("this message is a reply");
-    console.log(reply);
-
-    // form the request header to generate the meme
-    memePromise.then(memeId => {
-      message.channel.messages.fetch({ limit: 2 }).then(messages => {
-        /** 
-         * @var {string} body
-         * @summary Body of request for meme
-         */        
-        let body = queryString.stringify({
-          'username': process.env.IMGFLIP_USERNAME,
-          'password': process.env.IMGFLIP_PASSWORD,
-          'template_id': memeId,
-          'text0': messages.last().content,
-          'text1': ''
-          });      
-          return body;
-        }
-      )
-      // sent fully formed request to api and return the link to the image
-      .then((captionBody) => {
-        /** 
-         * @const {string} captionApi
-         * @summary caption image endpoint used to generate custom meme
-         */
-        const captionApi = 'https://api.imgflip.com/caption_image';     
-        // post request with our custom text and random image, then send to channel
-        axios.post(captionApi + '?' + captionBody)
-        .then(response => {
-          //console.log(response.data.data);
-          message.channel.send(response.data.data.url);
-        })        
-        .catch(error => {
-          console.log(error);
-          return message.channel.send(`I'm unable to caption the message, sorry master ${message.author}`);
-        });
+    if (message.reference !== null) {
+      memePromise.then(memeId => {
+        message.channel.messages.fetch(message.reference.messageID).then(messages => {
+          /** 
+           * @var {string} body
+           * @summary Body of request for meme
+           */
+          let body = queryString.stringify({
+            'username': process.env.IMGFLIP_USERNAME,
+            'password': process.env.IMGFLIP_PASSWORD,
+            'template_id': memeId,
+            'text0': messages.content,
+            'text1': ''
+            });      
+            return body;
+          }
+        )
+        // sent fully formed request to api and return the link to the image
+        .then((captionBody) => {
+          /** 
+           * @const {string} captionApi
+           * @summary caption image endpoint used to generate custom meme
+           */
+          const captionApi = 'https://api.imgflip.com/caption_image';     
+          // post request with our custom text and random image, then send to channel
+          axios.post(captionApi + '?' + captionBody)
+          .then(response => {
+            //console.log(response.data.data);
+            message.channel.send(response.data.data.url);
+          })        
+          .catch(error => {
+            console.log(error);
+            return message.channel.send(`I'm unable to caption the message, sorry master ${message.author}`);
+          });
+        });  
       });  
-    });
+    } else {
+      memePromise.then(memeId => {
+        message.channel.messages.fetch({ limit: 2 }).then(messages => {
+          /** 
+           * @var {string} body
+           * @summary Body of request for meme
+           */        
+          let body = queryString.stringify({
+            'username': process.env.IMGFLIP_USERNAME,
+            'password': process.env.IMGFLIP_PASSWORD,
+            'template_id': memeId,
+            'text0': messages.last().content,
+            'text1': ''
+            });      
+            return body;
+          }
+        )
+        // sent fully formed request to api and return the link to the image
+        .then((captionBody) => {
+          /** 
+           * @const {string} captionApi
+           * @summary caption image endpoint used to generate custom meme
+           */
+          const captionApi = 'https://api.imgflip.com/caption_image';     
+          // post request with our custom text and random image, then send to channel
+          axios.post(captionApi + '?' + captionBody)
+          .then(response => {
+            message.channel.send(response.data.data.url);
+          })        
+          .catch(error => {
+            console.log(error);
+            return message.channel.send(`I'm unable to caption the message, sorry master ${message.author}`);
+          });
+        });  
+      });  
+    }
   }
 };
