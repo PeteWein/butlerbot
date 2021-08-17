@@ -47,17 +47,17 @@ module.exports = {
       memePromise.then(memeId => {
         message.channel.messages.fetch(message.reference.messageID).then(messages => {
           /** 
-           * @var {string} body
-           * @summary Body of request for meme
+           * @var {string} rBody
+           * @summary Body of request for meme when sent as reply
            */
-          let body = queryString.stringify({
+          let rBody = queryString.stringify({
             'username': process.env.IMGFLIP_USERNAME,
             'password': process.env.IMGFLIP_PASSWORD,
             'template_id': memeId,
             'text0': messages.content,
             'text1': ''
             }); 
-            return body;
+            return rBody;
           }
         )
         // sent fully formed request to api and return the link to the image
@@ -97,10 +97,6 @@ module.exports = {
         )
         // sent fully formed request to api and return the link to the image
         .then((captionBody) => {
-          /** 
-           * @const {string} captionApi
-           * @summary caption image endpoint used to generate custom meme
-           */
           const captionApi = 'https://api.imgflip.com/caption_image';     
           // post request with our custom text and random image, then send to channel
           axios.post(captionApi + '?' + captionBody)

@@ -34,6 +34,8 @@ joke:
    Send a silly joke!
 meme:
    Get a top meme from Reddit.
+memeit:
+   Turn the last message (or replied message) into a meme.
 ping:
    Ping the discord bot to check latency.
 prune:
