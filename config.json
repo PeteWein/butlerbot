@@ -1,5 +1,5 @@
 {
     "prefix": "!",
     "logLevel": "info",
-    "logTimer": 5000
+    "logTimer": 900000
 }

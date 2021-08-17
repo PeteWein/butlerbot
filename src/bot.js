@@ -147,7 +147,7 @@ setInterval(function() {
 	mem.info()
 	.then(info => {
 		for (var memoryInfo in info) {
-			if (memoryInfo.toLowerCase().includes('percentage')) {
+			if (!memoryInfo.toLowerCase().includes('total')) {
 				logger.log('info', 'Memory Stats: ' + memoryInfo + ' - ' +  info[memoryInfo]);
 			} 
 		} 
