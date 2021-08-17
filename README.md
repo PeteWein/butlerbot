@@ -83,7 +83,7 @@ del-cli ./docs/coverage && jest ./test --detectOpenHandles --forceExit --coverag
 
 In addition to performing all of the unit tests, this test suite will also produce a coverage directory that reports the results of the test. These can be found in the `coverage/` directory at the project root. You can also view a report visualization at `file:///<PATH>/<TO>/<REPO>/butlerbot/docs/coverage/lcov-report/index.html`.
 
-All code coverage is automatically run/deployed and can be found via. the [Jest code coverage report here](coverage/lcov-report/index.html)
+All code coverage is automatically run/deployed and can be found via. the [Jest code coverage report here](https://petewein.github.io/butlerbot/coverage/lcov-report/index.html)
 
 Due to the fact that there is no simple unit testing/mock framework for discord bots, this [stackoverflow answer](https://stackoverflow.com/questions/60916450/jest-testing-discord-bot-commands) was the basis for the unit testing.
 
