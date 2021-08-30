@@ -31,7 +31,7 @@
   "bugs": {
     "url": "https://github.com/PeteWein/butlerbot/issues"
   },
-  "homepage": "https://github.com/PeteWein/butlerbot#readme",  
+  "homepage": "https://github.com/PeteWein/butlerbot#readme",
   "dependencies": {
     "axios": "^0.21.1",
     "del": "^6.0.0",
@@ -42,6 +42,7 @@
     "fs": "0.0.1-security",
     "jsdoc": "^3.6.7",
     "node-notifier": "^8.0.1",
+    "node-os-utils": "^1.3.5",
     "nodemon": "^2.0.4",
     "query-string": "^7.0.0",
     "random-puppy": "^1.1.0",

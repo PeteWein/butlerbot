@@ -5,10 +5,11 @@
  * @copyright MIT License (c) 2021
  */
 // grab our dependencies/configs/token
+var osu = require('node-os-utils');
 const fs = require('fs');
 const Discord = require('discord.js');
 const winston = require('winston');
-const { prefix, logLevel } = require('../config.json');
+const { prefix, logLevel, logTimer } = require('../config.json');
 require('dotenv').config();
 
 // create a new Discord objects
@@ -123,6 +124,37 @@ client.on('debug', m => logger.log('debug', m));
 client.on('warn', m => logger.log('warn', m));
 client.on('error', m => logger.log('error', m));
 process.on('uncaughtException', error => logger.log('error', error));
+
+
+/* 
+ * Host Level Logging Information
+ * This is to ensure we have everything we want to know about the host health
+ * We will run this on a configured interval (via. the config.json file)
+ * Once it's logged,  we can transform, monitor the logs for additional info
+ */ 
+setInterval(function() {
+	var cpu = osu.cpu;
+	var mem = osu.mem;
+
+	cpu.usage()
+	.then(used => {
+		logger.log('info', 'CPU Usage: ' + used); // percent of total cpu usage
+	});
+	cpu.free()
+	.then(free => {
+		logger.log('info', 'CPU Free: ' + free); // percent of total cpu usage
+	});
+	mem.info()
+	.then(info => {
+		for (var memoryInfo in info) {
+			if (!memoryInfo.toLowerCase().includes('total')) {
+				logger.log('info', 'Memory Stats: ' + memoryInfo + ' - ' +  info[memoryInfo]);
+			} 
+		} 
+	});
+		
+}, logTimer);
+
 
 
 // login to Discord with your app's token and begin running
