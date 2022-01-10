@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/PeteWein/butlerbot#readme",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "del": "^6.0.0",
     "del-cli": "^3.0.1",
     "discord.js": "^12.2.0",
