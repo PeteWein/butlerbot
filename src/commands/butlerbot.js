@@ -15,7 +15,7 @@ module.exports = {
 	 * @param {string} message - command, used to determine which channel to return results
 	 * @return {string} embedded message
 	 */  	
-    execute(client, message) {
+    execute(message) {
 		// * Define default values being used for the embedded message
 		/** @var {string} color */
 		let color = '#9b30af';
@@ -36,12 +36,13 @@ module.exports = {
 		/** @var {string[]} addFields */
 		let addFields = [
 			{name: 'Have questions?', value: 'Type !help', inline: true},
-			{name: 'Want a meme?', value: 'Type !meme', inline: true},
+			{name: 'Want to meme a message?', value: 'Type !memeit', inline: true},
 			{name: 'Looking for documentation?', value: '[Click here](https://petewein.github.io/butlerbot/documentation/index.html)', inline: true},
 		];
 		/** @var {string} image */
 		let image = 'https://i.chzbgr.com/full/8385259776/h29253DB5/kitteh-butler-caters-to-feline-company';
-
+		/** @var {string} footer */
+		let footer = 'Helping more discord users than I can count!';
 		/** 
 		 * @function embedMessage
 		 * @param {string} color - color hex code for background of embed image
@@ -51,6 +52,7 @@ module.exports = {
 		 * @param {string} description - text below title to described embedded message
 		 * @param {string} thumbnail - thumbnail image
 		 * @param {string} image - upper right corner image
+		 * @param {string} footer - display at end of embedded message
 		 * @return {Object} embed
 		 * @summary create and generate the embedded message
 		 */ 		
@@ -72,7 +74,8 @@ module.exports = {
 			.setTimestamp();
 			return embed;
 		}
-		let butlerbotEmbed = embedMessage(color, title, url, author, description, thumbnail, image);
+
+		let butlerbotEmbed = embedMessage(color, title, url, author, description, thumbnail, image, footer);
 		message.channel.send(butlerbotEmbed);
     }
 };
