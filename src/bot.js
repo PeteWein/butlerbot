@@ -87,8 +87,14 @@ client.on('message', async message => {
 		//NOTE: reaction ID is linked to the staging server
 		message.react('742372849179820033');
 	} catch (error) {
-		logger.log('error', 'message: ' + message + 'args: ' + args + 'error message: ' + error);
-		message.reply('there was an error trying to execute that command!');
+		if (error.message === 'Cannot read property \'cache\' of undefined') {
+			command.execute(client, message, args);
+			//NOTE: reaction ID is linked to the staging server
+			message.react('742372849179820033');
+		} else {
+			logger.log('error', 'message: ' + message + 'args: ' + args + 'error message: ' + error);
+			message.reply('there was an error trying to execute that command!');
+		}
 	}
 });
 
@@ -146,6 +152,7 @@ setInterval(function() {
 			} 
 		} 
 	});
+	logger.log('info', `Currently in ${client.guilds.cache.size} servers`);
 		
 }, logTimer);
 
