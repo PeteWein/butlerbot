@@ -72,7 +72,7 @@ module.exports = {
 			.setTimestamp();
 			return embed;
 		}
-		let butlerbotEmbed = embedMessage(color, title, url, author, description, thumbnail, image, footer);
+		let butlerbotEmbed = embedMessage(color, title, url, author, description, thumbnail, image);
 		message.channel.send(butlerbotEmbed);
     }
 };
