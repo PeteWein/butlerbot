@@ -41,8 +41,6 @@ module.exports = {
 		];
 		/** @var {string} image */
 		let image = 'https://i.chzbgr.com/full/8385259776/h29253DB5/kitteh-butler-caters-to-feline-company';
-		/** @var {string} footer */
-		let footer = `Happily performing my duties in ${client.guilds.cache.size} servers.`;
 
 		/** 
 		 * @function embedMessage
@@ -53,7 +51,6 @@ module.exports = {
 		 * @param {string} description - text below title to described embedded message
 		 * @param {string} thumbnail - thumbnail image
 		 * @param {string} image - upper right corner image
-		 * @param {string} footer - display at end of embedded message
 		 * @return {Object} embed
 		 * @summary create and generate the embedded message
 		 */ 		
@@ -75,7 +72,7 @@ module.exports = {
 			.setTimestamp();
 			return embed;
 		}
-		let butlerbotEmbed = embedMessage(color, title, url, author, description, thumbnail, image, footer);
+		let butlerbotEmbed = embedMessage(color, title, url, author, description, thumbnail, image);
 		message.channel.send(butlerbotEmbed);
     }
 };
